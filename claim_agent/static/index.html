@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Library Claim · Capture & review</title>
+  <link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script>
+</head>
+<body>
+  <header><a class="brand" href="/">Library <b>Claim</b></a><span id="health" class="pill">Connecting…</span></header>
+  <main>
+    <section class="intro"><p class="eyebrow">ONE ROOM · ONE CONTINUOUS SWEEP</p><h1>Every item.<br>Evidence behind every number.</h1><p class="lede">Capture your room with the iPhone app. Follow the inventory here as books, objects and measurements arrive.</p></section>
+    <section id="pair-panel" class="panel narrow"><h2>Connect to this Mac</h2><p>In the configured iPhone app, choose “Open full review on this phone” to open this review with secure pairing.</p></section>
+    <p id="message" role="status"></p>
+    <section id="workspace" hidden>
+      <div class="toolbar"><div><p class="eyebrow">YOUR SWEEPS</p><select id="sweep-select" aria-label="Choose a sweep"><option value="">Choose a sweep</option></select></div><button id="refresh" class="secondary">Refresh</button></div>
+      <div id="empty" class="panel"><h2>Ready for your first room</h2><p>Start a sweep in the native iPhone app using this Mac’s address and pairing code. Keep the phone and Mac on the same Wi-Fi.</p><ol><li>Confirm spoken language, country, currency and capture mode with the agent.</li><li>Move slowly across each shelf, then the room’s objects and corners.</li><li>End the sweep and review the packet here.</li></ol><p class="muted">Camera capture supplies visible evidence. LiDAR capture can additionally supply supported metric scale. This browser displays the saved evidence.</p></div>
+      <section id="inventory" hidden>
+        <div class="toolbar"><div><span id="status" class="pill"></span><p id="sweep-info" class="muted"></p></div><div class="actions"><a id="report-link" class="button secondary" target="_blank" rel="noreferrer">Open report</a><a id="packet-link" class="button">Download packet</a></div></div>
+        <p id="synthetic" class="notice" hidden>SYNTHETIC PIPELINE TEST — these are test inputs, not an assessment capture or accuracy result.</p>
+        <p id="api-cost" class="muted"></p>
+        <div class="metrics"><article><span>Books logged</span><strong id="book-count">—</strong><small id="identified-count"></small></article><article><span>Occupied shelf run</span><strong id="shelf-run">Unknown</strong><small>Union per shelf level</small></article><article><span>Replacement · books</span><strong id="book-value">—</strong><small id="price-coverage"></small></article><article><span>Floor area</span><strong id="floor-area">Unknown</strong><small id="wall-area"></small></article></div>
+        <div class="guidance"><span class="dot"></span><p id="guidance">Evidence will appear as the sweep progresses.</p></div>
+        <div class="columns"><section class="panel table-panel"><div class="toolbar"><h2>Books</h2><span class="muted">Select a row to review</span></div><div class="scroll"><table><thead><tr><th>Book / shelf</th><th>Height × thickness</th><th>Replacement / used</th><th>Status</th></tr></thead><tbody id="books"></tbody></table></div><h2>Other contents</h2><div class="scroll"><table><thead><tr><th>Object</th><th>Dimensions</th><th>Replacement</th><th>Status</th></tr></thead><tbody id="items"></tbody></table></div></section>
+        <aside><section class="panel"><h2>Review queue <span id="review-count"></span></h2><ul id="review-list" class="review-list"></ul></section><section class="panel"><h2>Live transcript</h2><div id="transcript" class="transcript"><p class="muted">Voice transcription appears during a connected phone session.</p></div></section></aside></div>
+        <section id="camera-comparison-panel" class="panel"><h2>Camera and LiDAR responses</h2><p>Reanalyse the exact same camera frames with depth and RoomPlan withheld. AR poses came from the LiDAR session and may be sensor-assisted. This compares pipeline responses; accuracy needs independent ground truth.</p><button id="camera-comparison-run" class="secondary" disabled>Compare camera and LiDAR</button><p id="camera-comparison-status" role="status"></p><div id="camera-comparison-result" hidden></div></section>
+        <section class="panel"><h2>Same books, second market</h2><p>Ask the live agent aloud to compare the same books in another market. Confirm the country and currency by voice. Missing offers stay unknown.</p><pre id="second-result" hidden></pre></section>
+      </section>
+    </section>
+  </main>
+  <dialog id="detail"><button class="close secondary" id="close-detail" aria-label="Close">×</button><h2 id="detail-title"></h2><img id="detail-frame" alt="Saved frame supporting this inventory line"><pre id="detail-facts"></pre><p>Speak corrections and clarifications to the agent in the iPhone app.</p><div class="actions"><button type="button" class="secondary" id="exclude-item">Exclude: not mine</button><button type="button" class="secondary" id="confirm-print" hidden>Confirm it is a print</button></div></dialog>
+  <footer>Unknown facts stay unknown. Counts and totals are calculated from the saved inventory.</footer>
+</body></html>

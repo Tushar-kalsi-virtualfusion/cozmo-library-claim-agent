@@ -1,0 +1,24 @@
+{
+  "identification_seconds": {
+    "count": 21,
+    "sum": 275.6757993758656,
+    "median": 0.05089887499343604,
+    "min": 0.03507900005206466,
+    "max": 43.88552399992477
+  },
+  "pricing_seconds": {
+    "count": 207,
+    "sum": 1741.8731924558524,
+    "median": 2.1255430419696495,
+    "min": 7.499475032091141e-07,
+    "max": 56.542454040958546
+  },
+  "first_audio_milliseconds": {
+    "count": 3,
+    "sum": 3052,
+    "median": 1017,
+    "min": 961,
+    "max": 1074
+  },
+  "timing_scope": "Recorded per-request stage durations include repair/retry work and overlapping execution. Sums are not wall-clock end-to-end duration. Sweep end/packet-ready timestamps are absent."
+}

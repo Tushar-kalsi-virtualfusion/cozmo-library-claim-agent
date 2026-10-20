@@ -1,0 +1,17 @@
+flowchart TB
+  P["iPhone: shared ARSession<br/>RGB + calibration + LiDAR / RoomPlan"]
+  L["YOLOE-26s Core ML + Vision OCR<br/>provisional dotted outlines; select clear views"]
+  Q["Disk outbox → paired Mac API<br/>immutable RGB, depth and metadata"]
+  V["GPT-6 Astra vision<br/>validated semantic observations"]
+  G["Server identity + geometry<br/>LiDAR scale; stable physical IDs"]
+  R["GPT-5.4 Mini discovers retailer URLs<br/>server retrieves offers + dated FX"]
+  S["Typed inventory + revisions<br/>Decimal totals → JSON, HTML, evidence ZIP"]
+  A["iPhone mic / speaker<br/>independent PCM WebSocket"]
+  O["Mac ↔ GPT-Realtime-2.1<br/>streamed voice + guarded actions"]
+  P --> L --> Q --> V --> G --> R --> S
+  P -->|same-session depth / surfaces| G
+  G --> S
+  A <--> O
+  S -->|fresh structured facts| O
+  O -->|owner corrections| S
+  O -->|spoken capture guidance| A

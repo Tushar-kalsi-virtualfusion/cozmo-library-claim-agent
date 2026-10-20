@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="600" height="610" preserveAspectRatio="xMinYMin meet" viewBox="0 0 600 610" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="600" height="610"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-610)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="13" y="572" width="104" height="26" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(89%,93%,91%); fill-rule: evenodd;"/>
+			<text x="46.665771484375" y="581" style="font-family: LCArialBold; font-size: 11px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,1162) scale(1,-1)">iPhone</text>
+			<polyline points="65 570, 65 22" style="stroke: rgb(76%,83%,81%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd; stroke-dasharray: 3, 3;"/>
+			<rect x="173" y="572" width="104" height="26" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(89%,93%,91%); fill-rule: evenodd;"/>
+			<text x="190.1416015625" y="581" style="font-family: LCArialBold; font-size: 11px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,1162) scale(1,-1)">Paired server</text>
+			<polyline points="225 570, 225 22" style="stroke: rgb(76%,83%,81%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd; stroke-dasharray: 3, 3;"/>
+			<rect x="333" y="572" width="104" height="26" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(89%,93%,91%); fill-rule: evenodd;"/>
+			<text x="362.073486328125" y="581" style="font-family: LCArialBold; font-size: 11px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,1162) scale(1,-1)">Realtime</text>
+			<polyline points="385 570, 385 22" style="stroke: rgb(76%,83%,81%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd; stroke-dasharray: 3, 3;"/>
+			<rect x="493" y="572" width="104" height="26" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(89%,93%,91%); fill-rule: evenodd;"/>
+			<text x="507.711181640625" y="581" style="font-family: LCArialBold; font-size: 11px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,1162) scale(1,-1)">Workers / web</text>
+			<polyline points="545 570, 545 22" style="stroke: rgb(76%,83%,81%); stroke-linecap: butt; stroke-width: 1; fill: None; fill-rule: evenodd; stroke-dasharray: 3, 3;"/>
+			<rect x="7" y="545" width="586" height="20" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="15" y="550" style="font-family: LCArialBold; font-size: 11px;fill: rgb(12%,41%,60%); stroke:none;" transform="translate(0,1100) scale(1,-1)">1  Spoken setup and explicit readiness</text>
+			<polyline points="65 528, 225 528" style="stroke: rgb(43%,29%,64%); stroke-linecap: butt; stroke-width: 1.4; fill: None; fill-rule: evenodd;"/>
+			<polygon points="225 528, 219 531, 219 525" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(43%,29%,64%); fill-rule: evenodd;"/>
+			<text x="92.6123046875" y="534" style="font-family: LCArial; font-size: 10px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,1068) scale(1,-1)">Start + spoken answers</text>
+			<polyline points="225 504, 385 504" style="stroke: rgb(43%,29%,64%); stroke-linecap: butt; stroke-width: 1.4; fill: None; fill-rule: evenodd;"/>
+			<polygon points="385 504, 379 507, 379 501" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(43%,29%,64%); fill-rule: evenodd;"/>
+			<text x="251.36474609375" y="510" style="font-family: LCArial; font-size: 10px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,1020) scale(1,-1)">Persistent voice session</text>
+			<polyline points="385 480, 65 480" style="stroke: rgb(43%,29%,64%); stroke-linecap: butt; stroke-width: 1.4; fill: None; fill-rule: evenodd;"/>
+			<polygon points="65 480, 71 483, 71 477" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(43%,29%,64%); fill-rule: evenodd;"/>
+			<text x="133.27880859375" y="486" style="font-family: LCArial; font-size: 10px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,972) scale(1,-1)">Readback / speech through paired server</text>
+			<polyline points="65 456, 225 456" style="stroke: rgb(43%,29%,64%); stroke-linecap: butt; stroke-width: 1.4; fill: None; fill-rule: evenodd;"/>
+			<polygon points="225 456, 219 459, 219 453" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(43%,29%,64%); fill-rule: evenodd;"/>
+			<text x="83.15673828125" y="462" style="font-family: LCArial; font-size: 10px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,924) scale(1,-1)">Played audio + confirmation</text>
+			<polyline points="225 432, 65 432" style="stroke: rgb(8%,44%,36%); stroke-linecap: butt; stroke-width: 1.4; fill: None; fill-rule: evenodd;"/>
+			<polygon points="65 432, 71 435, 71 429" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(8%,44%,36%); fill-rule: evenodd;"/>
+			<text x="90.517578125" y="438" style="font-family: LCArial; font-size: 10px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,876) scale(1,-1)">Separate readiness gate</text>
+			<rect x="7" y="397" width="586" height="20" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="15" y="402" style="font-family: LCArialBold; font-size: 11px;fill: rgb(12%,41%,60%); stroke:none;" transform="translate(0,804) scale(1,-1)">2  Concurrent work during the sweep - these are independent channels</text>
+			<polyline points="65 378, 385 378" style="stroke: rgb(43%,29%,64%); stroke-linecap: butt; stroke-width: 1.4; fill: None; fill-rule: evenodd;"/>
+			<polygon points="385 378, 379 381, 379 375" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(43%,29%,64%); fill-rule: evenodd;"/>
+			<text x="128.0078125" y="384" style="font-family: LCArial; font-size: 10px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,768) scale(1,-1)">PCM in / streamed audio out through server</text>
+			<polyline points="65 352, 225 352" style="stroke: rgb(8%,44%,36%); stroke-linecap: butt; stroke-width: 1.4; fill: None; fill-rule: evenodd;"/>
+			<polygon points="225 352, 219 355, 219 349" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(8%,44%,36%); fill-rule: evenodd;"/>
+			<text x="95.107421875" y="358" style="font-family: LCArial; font-size: 10px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,716) scale(1,-1)">Selected RGB + depth</text>
+			<polyline points="225 326, 545 326" style="stroke: rgb(8%,44%,36%); stroke-linecap: butt; stroke-width: 1.4; fill: None; fill-rule: evenodd;"/>
+			<polygon points="545 326, 539 329, 539 323" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(8%,44%,36%); fill-rule: evenodd;"/>
+			<text x="279.92919921875" y="332" style="font-family: LCArial; font-size: 10px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,664) scale(1,-1)">Bounded recognition; geometry; queued pricing</text>
+			<polyline points="545 300, 225 300" style="stroke: rgb(8%,44%,36%); stroke-linecap: butt; stroke-width: 1.4; fill: None; fill-rule: evenodd;"/>
+			<polygon points="225 300, 231 303, 231 297" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(8%,44%,36%); fill-rule: evenodd;"/>
+			<text x="289.94384765625" y="306" style="font-family: LCArial; font-size: 10px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,612) scale(1,-1)">Validated observations and retrieved offers</text>
+			<polyline points="225 274, 65 274" style="stroke: rgb(8%,44%,36%); stroke-linecap: butt; stroke-width: 1.4; fill: None; fill-rule: evenodd;"/>
+			<polygon points="65 274, 71 277, 71 271" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(8%,44%,36%); fill-rule: evenodd;"/>
+			<text x="81.9140625" y="280" style="font-family: LCArial; font-size: 10px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,560) scale(1,-1)">Inventory revisions / outlines</text>
+			<polyline points="65 248, 225 248" style="stroke: rgb(12%,41%,60%); stroke-linecap: butt; stroke-width: 1.4; fill: None; fill-rule: evenodd;"/>
+			<polygon points="225 248, 219 251, 219 245" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(12%,41%,60%); fill-rule: evenodd;"/>
+			<text x="102.47314453125" y="254" style="font-family: LCArial; font-size: 10px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,508) scale(1,-1)">RoomPlan updates</text>
+			<polyline points="225 222, 385 222" style="stroke: rgb(43%,29%,64%); stroke-linecap: butt; stroke-width: 1.4; fill: None; fill-rule: evenodd;"/>
+			<polygon points="385 222, 379 225, 379 219" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(43%,29%,64%); fill-rule: evenodd;"/>
+			<text x="250.810546875" y="228" style="font-family: LCArial; font-size: 10px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,456) scale(1,-1)">Fresh saved facts / cues</text>
+			<rect x="7" y="187" width="586" height="20" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="15" y="192" style="font-family: LCArialBold; font-size: 11px;fill: rgb(12%,41%,60%); stroke:none;" transform="translate(0,384) scale(1,-1)">3  Finish - flush evidence before the final packet</text>
+			<polyline points="65 166, 225 166" style="stroke: rgb(12%,41%,60%); stroke-linecap: butt; stroke-width: 1.4; fill: None; fill-rule: evenodd;"/>
+			<polygon points="225 166, 219 169, 219 163" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(12%,41%,60%); fill-rule: evenodd;"/>
+			<text x="90.66162109375" y="172" style="font-family: LCArial; font-size: 10px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,344) scale(1,-1)">End; final room + outbox</text>
+			<polyline points="225 140, 545 140" style="stroke: rgb(12%,41%,60%); stroke-linecap: butt; stroke-width: 1.4; fill: None; fill-rule: evenodd;"/>
+			<polygon points="545 140, 539 143, 539 137" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(12%,41%,60%); fill-rule: evenodd;"/>
+			<text x="328.0224609375" y="146" style="font-family: LCArial; font-size: 10px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,292) scale(1,-1)">Drain jobs within deadline</text>
+			<polyline points="545 114, 225 114" style="stroke: rgb(12%,41%,60%); stroke-linecap: butt; stroke-width: 1.4; fill: None; fill-rule: evenodd;"/>
+			<polygon points="225 114, 231 117, 231 111" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(12%,41%,60%); fill-rule: evenodd;"/>
+			<text x="324.97314453125" y="120" style="font-family: LCArial; font-size: 10px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,240) scale(1,-1)">Results / explicit unknowns</text>
+			<polyline points="225 88, 65 88" style="stroke: rgb(12%,41%,60%); stroke-linecap: butt; stroke-width: 1.4; fill: None; fill-rule: evenodd;"/>
+			<polygon points="65 88, 71 91, 71 85" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(12%,41%,60%); fill-rule: evenodd;"/>
+			<text x="80.537109375" y="94" style="font-family: LCArial; font-size: 10px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,188) scale(1,-1)">JSON / HTML / evidence ZIP</text>
+			<polyline points="225 62, 385 62" style="stroke: rgb(43%,29%,64%); stroke-linecap: butt; stroke-width: 1.4; fill: None; fill-rule: evenodd;"/>
+			<polygon points="385 62, 379 65, 379 59" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(43%,29%,64%); fill-rule: evenodd;"/>
+			<text x="250.25390625" y="68" style="font-family: LCArial; font-size: 10px;fill: rgb(9%,23%,21%); stroke:none;" transform="translate(0,136) scale(1,-1)">Grounded final summary</text>
+			<text x="15" y="8" style="font-family: LCArial; font-size: 10px;fill: rgb(32%,40%,39%); stroke:none;" transform="translate(0,16) scale(1,-1)">Preview video stays on device. Only selected stills and calibrated sensor evidence are uploaded.</text>
+		</g>
+	</g>
+</svg>

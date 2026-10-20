@@ -1,0 +1,22 @@
+{
+  "sweep_id": "ad0ab3c707b149948ed21e4593fe3675",
+  "source_revision": 406,
+  "source_state_sha256": "02d3298790ae436140514193d45e5fe1eec94f7dabff46869e6aae6bf57ab720",
+  "packet_sha256": "29e4a4be881a56112066aa7691bebd45a3ad770ab03ab595d347c9a5f166d406",
+  "original_evidence_entries": 172,
+  "required_evidence_entries": 66,
+  "sha256_verified": 66,
+  "size_verified": 66,
+  "evidence_types": {
+    "depth": 14,
+    "geometry": 30,
+    "observations": 11,
+    "frames": 8,
+    "sources": 3
+  },
+  "report_local_links_verified": 9,
+  "text_secret_scan_findings": [],
+  "non_metric_packet_fields_unchanged": true,
+  "omitted_evidence_entries": 106,
+  "scope_note": "Copied exactly the transitive evidence references in the sanitized current packet. Unreferenced diagnostic observations and full live state are not included. Frame content requires separate visual privacy review."
+}

@@ -1,0 +1,54 @@
+diff --git a/private/tmp/cozmo-reference-20261017/voice_ai_agents/insurance_claim_live_agent_team/live_demo/server.py b/.reference/insurance_claim_live_agent_team/live_demo/server.py
+index a07180f..a7c9bb4 100644
+--- a/private/tmp/cozmo-reference-20261017/voice_ai_agents/insurance_claim_live_agent_team/live_demo/server.py
++++ b/.reference/insurance_claim_live_agent_team/live_demo/server.py
+@@ -607,14 +607,37 @@ def allowed_origin(origin: str | None, host: str, scheme="http") -> bool:
+     return origin in set(_cors_origins()) | {f"{scheme}://{host}"}
+ 
+ 
++def configured_lan():
++    """Opt in to one private IPv4 host/subnet for the phone preview."""
++    try:
++        host = ipaddress.IPv4Address(os.getenv("FNOL_LAN_HOST", ""))
++        network = ipaddress.IPv4Network(os.getenv("FNOL_LAN_NETWORK", ""))
++        if host.is_private and network.is_private and network.prefixlen >= 24 and host in network:
++            return str(host), network
++    except ValueError:
++        pass
++    return None
++
++
+ def local_host(host: str) -> bool:
+-    return host.split(":")[0] in {"localhost", "127.0.0.1"}
++    lan = configured_lan()
++    return host.split(":")[0] in {"localhost", "127.0.0.1", *([lan[0]] if lan else [])}
++
++
++def local_client(host: str) -> bool:
++    if host in {"127.0.0.1", "::1", "testclient"}:
++        return True
++    lan = configured_lan()
++    try:
++        return bool(lan and ipaddress.IPv4Address(host) in lan[1])
++    except ValueError:
++        return False
+ 
+ 
+ @app.middleware("http")
+ async def local_access(request: Request, call_next):
+-    # Local-only demo: public serving requires a separate authenticated deployment design.
+-    if not local_host(request.headers.get("host", "")) or request.client.host not in {"127.0.0.1", "::1", "testclient"}:
++    # Local by default; an explicit private subnet enables the requested phone preview.
++    if not local_host(request.headers.get("host", "")) or not local_client(request.client.host):
+         return Response("This demo accepts local connections only.", status_code=403)
+     origin = request.headers.get("origin")
+     if (origin and not allowed_origin(origin, request.headers.get("host", ""), request.url.scheme)) or (request.method not in {"GET", "HEAD", "OPTIONS"} and not origin):
+@@ -836,7 +859,7 @@ async def stop_cleanup():
+ @app.websocket("/ws/live")
+ async def live_voice(websocket: WebSocket) -> None:
+     host = websocket.headers.get("host", "")
+-    if not local_host(host) or websocket.client.host not in {"127.0.0.1", "::1", "testclient"} or not allowed_origin(websocket.headers.get("origin"), host, "https" if websocket.url.scheme == "wss" else "http"):
++    if not local_host(host) or not local_client(websocket.client.host) or not allowed_origin(websocket.headers.get("origin"), host, "https" if websocket.url.scheme == "wss" else "http"):
+         await websocket.close(code=1008)
+         return
+     try:

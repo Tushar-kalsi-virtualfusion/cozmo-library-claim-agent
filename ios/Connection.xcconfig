@@ -1,0 +1,4 @@
+// Run python3 scripts/configure_ios.py to create private Mac connection settings.
+CLAIM_SERVER_URL =
+CLAIM_PAIR_TOKEN =
+#include? "LocalConnection.xcconfig"

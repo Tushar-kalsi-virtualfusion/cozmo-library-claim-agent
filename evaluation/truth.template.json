@@ -1,0 +1,18 @@
+{
+  "frozen_at": null,
+  "book_count": null,
+  "books": [],
+  "identity_checks": [],
+  "spines": [],
+  "prices": [],
+  "items": [],
+  "room": {
+    "length_m": null,
+    "width_m": null,
+    "height_m": null,
+    "floor_area_m2": null,
+    "wall_area_m2": null,
+    "shelved_wall_area_m2": null,
+    "shape_method": ""
+  }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<key>CFBundleDevelopmentRegion</key><string>en</string>
+<key>CFBundleExecutable</key><string>$(EXECUTABLE_NAME)</string>
+<key>CFBundleIdentifier</key><string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+<key>CFBundleName</key><string>Library Claim</string>
+<key>CFBundlePackageType</key><string>APPL</string>
+<key>CFBundleShortVersionString</key><string>$(MARKETING_VERSION)</string>
+<key>CFBundleVersion</key><string>$(CURRENT_PROJECT_VERSION)</string>
+<key>ClaimServerURL</key><string>$(CLAIM_SERVER_URL)</string>
+<key>ClaimPairToken</key><string>$(CLAIM_PAIR_TOKEN)</string>
+<key>LSRequiresIPhoneOS</key><true/>
+<key>NSCameraUsageDescription</key><string>Capture book spines and room evidence during one continuous sweep.</string>
+<key>NSMicrophoneUsageDescription</key><string>Talk to your capture assistant. Audio streams through your paired Mac to OpenAI for live conversation.</string>
+<key>NSSpeechRecognitionUsageDescription</key><string>Recognize your speech on this iPhone to choose language, country and capture mode and control your sweep.</string>
+<key>NSLocalNetworkUsageDescription</key><string>Stream voice and send room evidence to your paired Mac on the same Wi-Fi for OpenAI recognition and validated assistant actions.</string>
+<key>NSAppTransportSecurity</key><dict><key>NSAllowsArbitraryLoads</key><true/><key>NSAllowsLocalNetworking</key><true/></dict>
+<key>UIFileSharingEnabled</key><true/>
+<key>LSSupportsOpeningDocumentsInPlace</key><true/>
+<key>UIApplicationSceneManifest</key><dict><key>UIApplicationSupportsMultipleScenes</key><false/></dict>
+<key>UILaunchScreen</key><dict/>
+<key>UIRequiredDeviceCapabilities</key><array><string>arkit</string><string>arm64</string></array>
+<key>UISupportedInterfaceOrientations</key><array><string>UIInterfaceOrientationPortrait</string><string>UIInterfaceOrientationLandscapeLeft</string><string>UIInterfaceOrientationLandscapeRight</string></array>
+</dict></plist>
