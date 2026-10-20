@@ -4,7 +4,9 @@ A native iPhone camera/LiDAR and live-voice client with a local Python service. 
 
 ## Assessment submission - 20 October 2026
 
-![Hybrid iPhone and server architecture](docs/submission/assets/hybrid-architecture.svg)
+![Illustrated hybrid iPhone and server architecture](docs/submission/assets/architecture-icons.png)
+
+Illustrated overview; the phone screen is conceptual. See the [detailed technical diagram](docs/submission/assets/hybrid-architecture.svg) and [visual overview notes](docs/submission/visual-overview.md).
 
 The iPhone performs provisional object detection, OCR, capture selection and AR/LiDAR acquisition. The server coordinates independent voice, recognition, measurement and pricing work, maintains physical identities, and builds the evidence-backed inventory. Continuous video remains on the phone; selected still frames and calibrated depth are uploaded. See the [one-page architecture](output/pdf/architecture-note.pdf), [full technical report](output/pdf/technical-report.pdf), and [editable diagrams](docs/submission/architecture.mmd).
 
