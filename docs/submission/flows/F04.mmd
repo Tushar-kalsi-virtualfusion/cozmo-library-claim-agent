@@ -1,0 +1,22 @@
+sequenceDiagram
+  autonumber
+  participant sensor as ARKit / CoreML / OCR
+  participant phone as iPhone client
+  participant outbox as Phone disk outbox
+  participant api as FastAPI edge
+  participant runner as SweepRunner
+  participant store as EvidenceStore / disk
+  sensor-->>phone: RESPONSE: Local detector proposals + quality + fingerprint<br/>Core ML full frame/detail crops#59; display provisional dotted outlines.
+  phone->>phone: IN-PROCESS: Apply selection and concurrency gates<br/>Tracking, blur/exposure, novelty, pending count, time interval, depth improvement.
+  phone->>sensor: IN-PROCESS: Encode selected frame and run Vision OCR<br/>Raw-axis JPEG + calibration/pose + OCR#59; LiDAR depth/confidence if supported.
+  sensor-->>phone: RESPONSE: Encoded FrameUpload payload<br/>local_analysis=cloud_requested/unavailable#59; no Apple language model call.
+  phone->>outbox: IN-PROCESS: Atomically save pending/{frame_id}.json<br/>Immutable bytes before network#59; 1 GB outbox budget.
+  outbox-->>phone: RESPONSE: Earliest pending frame payload<br/>One uploader sends saved frames sequentially#59; retries reuse exact bytes.
+  phone->>api: REQUEST: POST /api/sweeps/{id}/frames<br/>metadata, jpeg_base64, depth_base64, confidence_base64#59; bearer auth.
+  api->>runner: IN-PROCESS: Validate payload and compute receipt signature<br/>Dimensions, image/depth lengths, same AR session and capture state.
+  runner->>store: IN-PROCESS: Persist evidence, receipt and queued state<br/>New frames enter bounded queue#59; JPEG content is hash-addressed.
+  api-->>phone: RESPONSE: 200 {accepted:true, processing:"queued", ...}<br/>duplicate:false and queue_depth for new frames#59; not a recognition result.
+  phone->>outbox: IN-PROCESS: Move pending file to uploaded/<br/>Preserve bytes#59; accepted frame unlocks live geometry upload.
+  api-->>phone: ALTERNATIVE / ERROR: ALT full queue: 429 + Retry-After: 3<br/>detail.processing=retry_backpressure, accepted:false, retry_after_s:3.
+  phone->>outbox: IN-PROCESS: ALT retain pending#59; delay and retry same bytes<br/>Other upload errors also retain pending evidence#59; no second frame ID.
+  api-->>phone: RESPONSE: ALT duplicate: 200 with duplicate:true<br/>processing=duplicate_suppressed or queued_geometry#59; original receipt may replay.

@@ -165,7 +165,26 @@ determination about distribution.
 
 The isolated public source snapshot passed all 362 Python tests again in 15.863
 seconds. All Markdown relative links resolved; the two short PDF notes are one
-page each and the full report is nine pages. The final source/evidence package
+page each and the original full report was nine pages. The final source/evidence package
 passed the targeted credential scan, and the included household-model weight
 hash still matches its provenance record. Referenced evidence and original
 recording checksums are documented separately.
+
+
+## Detailed flow documentation update - 20 October 2026
+
+The later documentation-only update adds 12 source-traced sequences and 28
+endpoint/provider contracts. The flow atlas is 20 landscape pages; the full
+technical report now contains 29 pages including that appendix. Every page was
+rendered with Poppler and visually reviewed. Diagram generation validates
+participant IDs and referenced source paths/line numbers. SVG XML, relative
+document links, PDF page/text presence and changed-file whitespace were checked.
+Application source and recorded evidence are unchanged; no new live-provider or
+physical-accuracy result is claimed by these diagrams.
+
+To regenerate with the optional authoring dependencies `reportlab` and `pypdf`:
+
+```sh
+python scripts/build_service_flows.py
+python scripts/build_submission_docs.py
+```

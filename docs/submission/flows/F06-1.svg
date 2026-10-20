@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1190.5511811023623" height="841.8897637795277" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1190 841" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1190.5511811023623" height="841.8897637795277"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-841)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1190.5511811023623" height="841.8897637795277" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="38" y="813.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1627) scale(1,-1)">LIBRARY CLAIM / SERVICE FLOWS</text>
+			<text x="38" y="782.8897637795277" style="font-family: Helvetica-Bold; font-size: 24px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1565) scale(1,-1)">F06 Measure objects and update RoomPlan geometry - part 1/2</text>
+			<text x="38" y="761.8897637795277" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1523) scale(1,-1)">Object face measurements and room/furniture geometry use calibrated sensor evidence, not guessed model scale.</text>
+			<text x="38" y="20.0" style="font-family: Helvetica; font-size: 8.5px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,40) scale(1,-1)">As implemented 20 October 2026 | Solid: request/call | Dashed: response | Purple: asynchronous event | Grey: in-process</text>
+			<rect x="38" y="647.6897637795277" width="1114.5511811023623" height="36.200000000000045" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="575.2897637795277" width="1114.5511811023623" height="36.200000000000045" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="502.88976377952764" width="1114.5511811023623" height="36.19999999999999" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="406.08976377952774" width="1114.5511811023623" height="48.39999999999998" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="54.5" y="701.8897637795277" width="100.0" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,94%,92%); fill-rule: evenodd;"/>
+			<text x="73.38" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">iPhone client</text>
+			<path d="M 104.5,696.889764 L 104.5,364.889764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="163.5" y="701.8897637795277" width="100.0" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="181.825" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">FastAPI edge</text>
+			<path d="M 213.5,696.889764 L 213.5,364.889764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="272.5" y="701.8897637795277" width="100.0" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="289.15999999999997" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">SweepRunner</text>
+			<path d="M 322.5,696.889764 L 322.5,364.889764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="381.5" y="701.8897637795277" width="100.0" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="403.85" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">Geometry +</text>
+			<text x="412.05" y="717.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1435) scale(1,-1)">tracking</text>
+			<path d="M 431.5,696.889764 L 431.5,364.889764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="490.5" y="701.8897637795277" width="100.0" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(92%,94%,94%); fill-rule: evenodd;"/>
+			<text x="502.985" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">EvidenceStore /</text>
+			<text x="530.495" y="717.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1435) scale(1,-1)">disk</text>
+			<path d="M 540.5,696.889764 L 540.5,364.889764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="599.5" y="701.8897637795277" width="100.0" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="611.99" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">Realtime bridge</text>
+			<path d="M 649.5,696.889764 L 649.5,364.889764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<text x="764" y="728.8897637795277" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1457) scale(1,-1)">MESSAGE / PAYLOAD / RESULT</text>
+			<text x="764" y="709.8897637795277" style="font-family: Helvetica; font-size: 10px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1419) scale(1,-1)">Read downward; numbers match the arrows.</text>
+			<path d="M 734,744.889764 L 734,364.889764 Z" style="stroke: rgb(78%,83%,82%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 322.5,665.789764 L 431.5,665.789764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="431.5 665.7898, 424.5 669.2898, 424.5 662.2898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,48%,50%); fill-rule: evenodd;"/>
+			<circle cx="377.0" cy="665.7897637795277" r="10" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="371.996" y="662.4897637795277" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1324) scale(1,-1)">01</text>
+			<text x="740" y="669.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1339) scale(1,-1)">01</text>
+			<text x="764" y="669.8897637795277" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1339) scale(1,-1)">For each scan polygon: measure detection</text>
+			<text x="764" y="656.8897637795277" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1313) scale(1,-1)">Use original calibration and confident aligned depth; fit local plane/rays.</text>
+			<path d="M 431.5,629.589764 L 322.5,629.589764 Z" style="stroke: rgb(13%,42%,60%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 5, 3;"/>
+			<polygon points="322.5 629.5898, 329.5 633.0898, 329.5 626.0898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,42%,60%); fill-rule: evenodd;"/>
+			<circle cx="377.0" cy="629.5897637795276" r="10" style="stroke: rgb(13%,42%,60%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="371.996" y="626.2897637795277" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,1252) scale(1,-1)">02</text>
+			<text x="740" y="633.6897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,1267) scale(1,-1)">02</text>
+			<text x="764" y="633.6897637795277" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,1267) scale(1,-1)">Dimensions / world support or unknown + reasons</text>
+			<text x="764" y="620.6897637795277" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1241) scale(1,-1)">Book spine edges or visible object face; no invented full 3-D box.</text>
+			<path d="M 322.5,593.389764 L 431.5,593.389764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="431.5 593.3898, 424.5 596.8898, 424.5 589.8898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,48%,50%); fill-rule: evenodd;"/>
+			<circle cx="377.0" cy="593.3897637795276" r="10" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="371.996" y="590.0897637795276" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1180) scale(1,-1)">03</text>
+			<text x="740" y="597.4897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1194) scale(1,-1)">03</text>
+			<text x="764" y="597.4897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1194) scale(1,-1)">Associate physical track and furniture anchor</text>
+			<text x="764" y="584.4897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1168) scale(1,-1)">Same session, one-to-one assignment, compatible category/depth/geometry.</text>
+			<path d="M 431.5,557.189764 L 322.5,557.189764 Z" style="stroke: rgb(13%,42%,60%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 5, 3;"/>
+			<polygon points="322.5 557.1898, 329.5 560.6898, 329.5 553.6898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,42%,60%); fill-rule: evenodd;"/>
+			<circle cx="377.0" cy="557.1897637795275" r="10" style="stroke: rgb(13%,42%,60%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="371.996" y="553.8897637795276" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,1107) scale(1,-1)">04</text>
+			<text x="740" y="561.2897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,1122) scale(1,-1)">04</text>
+			<text x="764" y="561.2897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,1122) scale(1,-1)">Existing physical ID or new/reviewable record</text>
+			<text x="764" y="548.2897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1096) scale(1,-1)">Text equality alone never merges physical objects; ambiguity stays explicit.</text>
+			<path d="M 104.5,526.989764 L 139.5,526.989764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<path d="M 139.5,526.989764 L 139.5,514.989764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<path d="M 139.5,514.989764 L 104.5,514.989764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="104.5 514.9898, 110.5 517.9898, 110.5 511.9898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,48%,50%); fill-rule: evenodd;"/>
+			<circle cx="82.5" cy="520.9897637795275" r="10" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="77.496" y="517.6897637795275" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1035) scale(1,-1)">05</text>
+			<text x="740" y="525.0897637795275" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1050) scale(1,-1)">05</text>
+			<text x="764" y="525.0897637795275" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1050) scale(1,-1)">RoomPlan live update on shared AR session</text>
+			<text x="764" y="512.0897637795275" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1024) scale(1,-1)">Throttle &gt;=3 s; retain latest snapshot; only one geometry request in flight.</text>
+			<path d="M 104.5,478.689764 L 213.5,478.689764 Z" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="213.5 478.6898, 206.5 482.1898, 206.5 475.1898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(7%,46%,37%); fill-rule: evenodd;"/>
+			<circle cx="159.0" cy="478.68976377952754" r="10" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="153.996" y="475.3897637795275" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,950) scale(1,-1)">06</text>
+			<text x="740" y="488.8897637795275" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,977) scale(1,-1)">06</text>
+			<text x="764" y="488.8897637795275" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,977) scale(1,-1)">POST /api/sweeps/{id}/geometry</text>
+			<text x="764" y="475.8897637795275" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,951) scale(1,-1)">After accepted frame: session ID, walls/openings/objects; live floors:[],</text>
+			<text x="764" y="463.68976377952754" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,927) scale(1,-1)">capture_complete:false.</text>
+			<path d="M 213.5,430.289764 L 322.5,430.289764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="322.5 430.2898, 315.5 433.7898, 315.5 426.7898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,48%,50%); fill-rule: evenodd;"/>
+			<circle cx="268.0" cy="430.28976377952756" r="10" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="262.996" y="426.98976377952755" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,853) scale(1,-1)">07</text>
+			<text x="740" y="440.48976377952755" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,880) scale(1,-1)">07</text>
+			<text x="764" y="440.48976377952755" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,880) scale(1,-1)">Validate session and geometry write state</text>
+			<text x="764" y="427.48976377952755" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,854) scale(1,-1)">Camera mode, absent first frame or mismatched session reject; same bytes are</text>
+			<text x="764" y="415.28976377952756" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,830) scale(1,-1)">idempotent.</text>
+			<path d="M 322.5,387.989764 L 540.5,387.989764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="540.5 387.9898, 533.5 391.4898, 533.5 384.4898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,48%,50%); fill-rule: evenodd;"/>
+			<circle cx="431.5" cy="387.98976377952755" r="10" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="426.496" y="384.68976377952754" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,769) scale(1,-1)">08</text>
+			<text x="740" y="392.0897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,784) scale(1,-1)">08</text>
+			<text x="764" y="392.0897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,784) scale(1,-1)">Save immutable geometry/room_&lt;id&gt;.json</text>
+			<text x="764" y="379.0897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,758) scale(1,-1)">Preserve the input geometry before reconciling measurements.</text>
+			<text x="38" y="84" style="font-family: Helvetica; font-size: 10px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,168) scale(1,-1)">BOUNDARY Live RoomPlan intentionally omits floor polygons. Final RoomBuilder geometry is needed for floor area. Camera-only frames keep unsupported measurements unknown. Accurate sensor-derived numbers still need tape/ruler validation.</text>
+			<text x="38" y="48" style="font-family: Helvetica; font-size: 8.5px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,96) scale(1,-1)">SOURCE claim_agent/pipeline.py:369 | claim_agent/geometry.py:30 | ios/LibraryClaim/MeasurementModels.swift:4 | ios/LibraryClaim/RoomGeometry.swift:5 | claim_agent/pipeline.py:711</text>
+		</g>
+	</g>
+</svg>

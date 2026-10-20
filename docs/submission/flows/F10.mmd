@@ -1,0 +1,21 @@
+sequenceDiagram
+  autonumber
+  participant phone as iPhone client
+  participant api as FastAPI edge
+  participant compare as Comparison workflow
+  participant store as EvidenceStore / disk
+  participant replay as Isolated replay runner
+  participant ai as OpenAI Responses
+  phone->>api: REQUEST: POST /api/sweeps/{id}/camera-comparison<br/>JSON {}#59; native waits up to 300 s. Must follow eligible ready/partial LiDAR sweep.
+  api->>compare: IN-PROCESS: Acquire filesystem lock#59; inspect previous report<br/>Existing completed/failed report returns without another replay.
+  compare->>store: IN-PROCESS: Freeze LiDAR packet#59; persist running status<br/>Validate model/provider continuity, evidence and total active capacity.
+  compare->>replay: IN-PROCESS: Create fresh camera runner / provider / state<br/>Same locale/model and original RGB+calibration/pose#59; zero depth dimensions.
+  store-->>replay: RESPONSE: Original hash-verified JPEGs and calibration<br/>Do not inherit source tracks, physical IDs, corrections, geometry or prices.
+  replay->>ai: REQUEST: Gated vision/search requests (F05/F07)<br/>Independent call budget and costs#59; process each frame, then finish replay.
+  ai-->>replay: RESPONSE: Independent observations / sources / usage<br/>Unknown/error outcomes remain distinct from zero detected objects.
+  replay-->>compare: RESPONSE: Camera packet and processing evidence<br/>Counts, measurement coverage, review reasons, timing and usage.
+  compare->>store: IN-PROCESS: Persist camera packet and comparison report<br/>status complete or failed#59; analysis_status separately completed/partial/failed/interrupted.
+  compare-->>phone: ASYNC EVENT: comparison_ready {report} via API<br/>Completed/handled failure emits event. Cancellation may persist failure without event#59; recover through GET.
+  api-->>phone: RESPONSE: 200 saved report after processing<br/>No 202 response. 409 already_running/source_unavailable/capacity before replay.
+  phone->>api: REQUEST: OPTIONAL GET /api/sweeps/{id}/camera-comparison<br/>Read persisted status#59; 404 if absent. No replay starts from this GET.
+  api-->>phone: RESPONSE: 200 persisted running/complete/failed report<br/>Already-running native recovery does one GET#59; no automatic polling loop.

@@ -1,0 +1,19 @@
+sequenceDiagram
+  autonumber
+  participant phone as iPhone client
+  participant api as FastAPI edge
+  participant bridge as Realtime bridge
+  participant runner as SweepRunner
+  participant prices as PriceProvider / cache
+  participant store as EvidenceStore / disk
+  phone-->>bridge: ASYNC EVENT: PATH A: spoken request through Realtime (F03)<br/>Validated compare_market function arguments: country, currency.
+  bridge->>runner: IN-PROCESS: compare_market -> second_locale(locale)<br/>Validate supported voice country/currency pair#59; no separate HTTP round trip.
+  phone->>api: REQUEST: PATH B: POST /api/sweeps/{id}/second-locale<br/>JSON: country, currency#59; request stays open until results are ready.
+  api->>runner: IN-PROCESS: second_locale(locale)<br/>This is an alternative entry to step 2, not a second call after voice.
+  runner->>runner: IN-PROCESS: Copy first ten identified, nonexcluded books<br/>Freeze same physical IDs and frame refs#59; report required=10 and actual coverage.
+  runner->>prices: IN-PROCESS: For each selected book: quote new, then used<br/>Direct sequential quote calls with F07 validation#59; bypasses pricing-job queue and its resume/dedup rules.
+  prices-->>runner: RESPONSE: Prices with sources or explicit unknowns<br/>Do not overwrite primary-market prices or generate missing identities.
+  runner->>store: IN-PROCESS: Save source evidence and second-locale observation<br/>Persist state#59; no inventory revision/event or bundle regeneration here.
+  runner-->>bridge: RESPONSE: PATH A result: same_physical_ids:true + books<br/>Bridge receives result after awaited pricing.
+  bridge-->>phone: ASYNC EVENT: PATH A only: second_locale {result}<br/>Also return function output to Realtime so spoken response can use result.
+  api-->>phone: RESPONSE: PATH B only: 200 second-locale result<br/>No second_locale WebSocket event is emitted by this HTTP route.

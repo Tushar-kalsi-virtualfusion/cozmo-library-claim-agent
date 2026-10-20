@@ -9,7 +9,7 @@ all acceptance bars passed.
 ## Review order
 
 1. [README](../../README.md): setup and run instructions.
-2. [Architecture note](../../output/pdf/architecture-note.pdf) and [full technical report](../../output/pdf/technical-report.pdf): model boundaries, voice/video coordination, LiDAR scale, identity, pricing and persistence.
+2. [Request/response flow guide](service-flows.md), [flow atlas](../../output/pdf/service-flow-diagrams.pdf), [Architecture note](../../output/pdf/architecture-note.pdf) and [full technical report](../../output/pdf/technical-report.pdf): model boundaries, voice/video coordination, LiDAR scale, identity, pricing and persistence.
 3. [Original recordings and checksums](videos.md), available from the [release](https://github.com/Tushar-kalsi-virtualfusion/cozmo-library-claim-agent/releases/tag/assessment-2026-10-20).
 4. [Claim evidence ZIP](../../submission/evidence/current-evidence.zip): extract it and open `current/report.html`; JSON and all referenced evidence stay together.
 5. [Results workbook](../../submission/ground-truth-and-results.xlsx), [results notes](results.md), [failure log](../../output/pdf/failure-log.pdf) and [software verification](validation.md).

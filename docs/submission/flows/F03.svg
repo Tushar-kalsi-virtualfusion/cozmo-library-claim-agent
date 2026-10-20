@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1190.5511811023623" height="841.8897637795277" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1190 841" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1190.5511811023623" height="841.8897637795277"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-841)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1190.5511811023623" height="841.8897637795277" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="38" y="813.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1627) scale(1,-1)">LIBRARY CLAIM / SERVICE FLOWS</text>
+			<text x="38" y="782.8897637795277" style="font-family: Helvetica-Bold; font-size: 24px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1565) scale(1,-1)">F03 Stream audio, acknowledge playback and interrupt</text>
+			<text x="38" y="761.8897637795277" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1523) scale(1,-1)">Audio and transcript events stream asynchronously; generation completion does not prove playback.</text>
+			<text x="38" y="20.0" style="font-family: Helvetica; font-size: 8.5px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,40) scale(1,-1)">As implemented 20 October 2026 | Solid: request/call | Dashed: response | Purple: asynchronous event | Grey: in-process</text>
+			<rect x="38" y="647.6897637795277" width="1114.5511811023623" height="36.200000000000045" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="575.2897637795277" width="1114.5511811023623" height="36.200000000000045" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="502.88976377952764" width="1114.5511811023623" height="36.19999999999999" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="430.48976377952766" width="1114.5511811023623" height="36.19999999999999" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="358.0897637795277" width="1114.5511811023623" height="36.19999999999999" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="285.6897637795277" width="1114.5511811023623" height="36.19999999999999" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="201.08976377952766" width="1114.5511811023623" height="48.400000000000006" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="128.6897637795277" width="1114.5511811023623" height="36.19999999999999" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="72.75" y="701.8897637795277" width="118.0" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,94%,92%); fill-rule: evenodd;"/>
+			<text x="100.63" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">iPhone client</text>
+			<path d="M 131.75,696.889764 L 131.75,123.689764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="236.25" y="701.8897637795277" width="118.0" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="263.575" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">FastAPI edge</text>
+			<path d="M 295.25,696.889764 L 295.25,123.689764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="399.75" y="701.8897637795277" width="118.0" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="421.24" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">Realtime bridge</text>
+			<path d="M 458.75,696.889764 L 458.75,123.689764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="563.25" y="701.8897637795277" width="118.0" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,91%,98%); fill-rule: evenodd;"/>
+			<text x="582.24" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">OpenAI Realtime</text>
+			<path d="M 622.25,696.889764 L 622.25,123.689764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<text x="764" y="728.8897637795277" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1457) scale(1,-1)">MESSAGE / PAYLOAD / RESULT</text>
+			<text x="764" y="709.8897637795277" style="font-family: Helvetica; font-size: 10px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1419) scale(1,-1)">Read downward; numbers match the arrows.</text>
+			<path d="M 734,744.889764 L 734,123.689764 Z" style="stroke: rgb(78%,83%,82%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 131.75,665.789764 L 295.25,665.789764 Z" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="295.25 665.7898, 288.25 669.2898, 288.25 662.2898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(46%,31%,64%); fill-rule: evenodd;"/>
+			<circle cx="213.5" cy="665.7897637795277" r="10" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="208.496" y="662.4897637795277" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,1324) scale(1,-1)">01</text>
+			<text x="740" y="669.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,1339) scale(1,-1)">01</text>
+			<text x="764" y="669.8897637795277" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,1339) scale(1,-1)">audio {pcm_base64}</text>
+			<text x="764" y="656.8897637795277" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1313) scale(1,-1)">Signed PCM16 mono at 16 kHz; microphone enabled only after voice_ready.</text>
+			<path d="M 295.25,629.589764 L 458.75,629.589764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="458.75 629.5898, 451.75 633.0898, 451.75 626.0898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,48%,50%); fill-rule: evenodd;"/>
+			<circle cx="377.0" cy="629.5897637795276" r="10" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="371.996" y="626.2897637795277" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1252) scale(1,-1)">02</text>
+			<text x="740" y="633.6897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1267) scale(1,-1)">02</text>
+			<text x="764" y="633.6897637795277" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1267) scale(1,-1)">Validate and enqueue audio</text>
+			<text x="764" y="620.6897637795277" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1241) scale(1,-1)">Even byte count; at most 32,000 bytes per native audio event.</text>
+			<path d="M 458.75,593.389764 L 622.25,593.389764 Z" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="622.25 593.3898, 615.25 596.8898, 615.25 589.8898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(46%,31%,64%); fill-rule: evenodd;"/>
+			<circle cx="540.5" cy="593.3897637795276" r="10" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="535.496" y="590.0897637795276" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,1180) scale(1,-1)">03</text>
+			<text x="740" y="597.4897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,1194) scale(1,-1)">03</text>
+			<text x="764" y="597.4897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,1194) scale(1,-1)">input_audio_buffer.append {audio}</text>
+			<text x="764" y="584.4897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1168) scale(1,-1)">Stateful resampling to 24 kHz; provider VAD controls ordinary turn creation.</text>
+			<path d="M 622.25,557.189764 L 458.75,557.189764 Z" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="458.75 557.1898, 465.75 560.6898, 465.75 553.6898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(46%,31%,64%); fill-rule: evenodd;"/>
+			<circle cx="540.5" cy="557.1897637795275" r="10" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="535.496" y="553.8897637795276" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,1107) scale(1,-1)">04</text>
+			<text x="740" y="561.2897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,1122) scale(1,-1)">04</text>
+			<text x="764" y="561.2897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,1122) scale(1,-1)">input_audio_buffer.speech_started / speech_stopped / committed</text>
+			<text x="764" y="548.2897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1096) scale(1,-1)">Independent transcription.completed and response events follow.</text>
+			<path d="M 622.25,520.989764 L 458.75,520.989764 Z" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="458.75 520.9898, 465.75 524.4898, 465.75 517.4898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(46%,31%,64%); fill-rule: evenodd;"/>
+			<circle cx="540.5" cy="520.9897637795275" r="10" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="535.496" y="517.6897637795275" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,1035) scale(1,-1)">05</text>
+			<text x="740" y="525.0897637795275" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,1050) scale(1,-1)">05</text>
+			<text x="764" y="525.0897637795275" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,1050) scale(1,-1)">response.output_audio.delta</text>
+			<text x="764" y="512.0897637795275" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1024) scale(1,-1)">PCM16 mono 24 kHz plus response/item/content identifiers.</text>
+			<path d="M 458.75,484.789764 L 131.75,484.789764 Z" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="131.75 484.7898, 138.75 488.2898, 138.75 481.2898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(46%,31%,64%); fill-rule: evenodd;"/>
+			<circle cx="295.25" cy="484.7897637795275" r="10" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="290.246" y="481.4897637795275" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,962) scale(1,-1)">06</text>
+			<text x="740" y="488.8897637795275" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,977) scale(1,-1)">06</text>
+			<text x="764" y="488.8897637795275" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,977) scale(1,-1)">audio via API event socket</text>
+			<text x="764" y="475.8897637795275" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,951) scale(1,-1)">pcm_base64, sample_rate=24000, item_id, content_index, audio_end_ms.</text>
+			<path d="M 131.75,454.589764 L 166.75,454.589764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<path d="M 166.75,454.589764 L 166.75,442.589764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<path d="M 166.75,442.589764 L 131.75,442.589764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="131.75 442.5898, 137.75 445.5898, 137.75 439.5898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,48%,50%); fill-rule: evenodd;"/>
+			<circle cx="109.75" cy="448.5897637795275" r="10" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="104.746" y="445.2897637795275" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,890) scale(1,-1)">07</text>
+			<text x="740" y="452.68976377952754" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,905) scale(1,-1)">07</text>
+			<text x="764" y="452.68976377952754" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,905) scale(1,-1)">Schedule playback on AVAudioPlayerNode</text>
+			<text x="764" y="439.68976377952754" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,879) scale(1,-1)">Track cumulative played duration with dataPlayedBack callbacks.</text>
+			<path d="M 131.75,412.389764 L 458.75,412.389764 Z" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="458.75 412.3898, 451.75 415.8898, 451.75 408.8898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(46%,31%,64%); fill-rule: evenodd;"/>
+			<circle cx="295.25" cy="412.3897637795275" r="10" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="290.246" y="409.0897637795275" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,818) scale(1,-1)">08</text>
+			<text x="740" y="416.48976377952755" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,832) scale(1,-1)">08</text>
+			<text x="764" y="416.48976377952755" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,832) scale(1,-1)">playback via API</text>
+			<text x="764" y="403.48976377952755" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,806) scale(1,-1)">item_id, content_index, played_ms: receipt of audio actually played.</text>
+			<path d="M 622.25,376.189764 L 458.75,376.189764 Z" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="458.75 376.1898, 465.75 379.6898, 465.75 372.6898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(46%,31%,64%); fill-rule: evenodd;"/>
+			<circle cx="540.5" cy="376.18976377952754" r="10" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="535.496" y="372.8897637795275" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,745) scale(1,-1)">09</text>
+			<text x="740" y="380.28976377952756" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,760) scale(1,-1)">09</text>
+			<text x="764" y="380.28976377952756" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,760) scale(1,-1)">Transcript and response.done events</text>
+			<text x="764" y="367.28976377952756" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,734) scale(1,-1)">Forward transcript / turn_complete separately; record reported usage.</text>
+			<path d="M 131.75,339.989764 L 295.25,339.989764 Z" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="295.25 339.9898, 288.25 343.4898, 288.25 336.4898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(46%,31%,64%); fill-rule: evenodd;"/>
+			<circle cx="213.5" cy="339.98976377952755" r="10" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="208.496" y="336.68976377952754" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,673) scale(1,-1)">10</text>
+			<text x="740" y="344.0897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,688) scale(1,-1)">10</text>
+			<text x="764" y="344.0897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,688) scale(1,-1)">ALT manual: interrupt_voice</text>
+			<text x="764" y="331.0897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,662) scale(1,-1)">Phone stops queued playback and temporarily suppresses late audio.</text>
+			<path d="M 295.25,303.789764 L 458.75,303.789764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="458.75 303.7898, 451.75 307.2898, 451.75 300.2898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,48%,50%); fill-rule: evenodd;"/>
+			<circle cx="377.0" cy="303.78976377952756" r="10" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="371.996" y="300.48976377952755" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,600) scale(1,-1)">11</text>
+			<text x="740" y="307.8897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,615) scale(1,-1)">11</text>
+			<text x="764" y="307.8897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,615) scale(1,-1)">Handle interruption request</text>
+			<text x="764" y="294.8897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,589) scale(1,-1)">Spoken barge-in instead starts from provider input_audio_buffer.speech_started.</text>
+			<path d="M 458.75,267.589764 L 131.75,267.589764 Z" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="131.75 267.5898, 138.75 271.0898, 138.75 264.0898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(46%,31%,64%); fill-rule: evenodd;"/>
+			<circle cx="295.25" cy="267.5897637795276" r="10" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="290.246" y="264.28976377952756" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,528) scale(1,-1)">12</text>
+			<text x="740" y="271.6897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,543) scale(1,-1)">12</text>
+			<text x="764" y="271.6897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,543) scale(1,-1)">interrupted via API</text>
+			<text x="764" y="258.6897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,517) scale(1,-1)">Publish interrupted first; invalidate pending work and clear stale playback state.</text>
+			<path d="M 458.75,225.289764 L 622.25,225.289764 Z" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="622.25 225.2898, 615.25 228.7898, 615.25 221.7898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(46%,31%,64%); fill-rule: evenodd;"/>
+			<circle cx="540.5" cy="225.28976377952762" r="10" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="535.496" y="221.9897637795276" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,443) scale(1,-1)">13</text>
+			<text x="740" y="235.4897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,470) scale(1,-1)">13</text>
+			<text x="764" y="235.4897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,470) scale(1,-1)">response.cancel; conversation.item.truncate</text>
+			<text x="764" y="222.4897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,444) scale(1,-1)">Manual: response.cancel only if active; truncate only when an unplayed audio</text>
+			<text x="764" y="210.28976377952762" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,420) scale(1,-1)">tail exists.</text>
+			<path d="M 131.75,182.989764 L 295.25,182.989764 Z" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="295.25 182.9898, 288.25 186.4898, 288.25 179.4898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(46%,31%,64%); fill-rule: evenodd;"/>
+			<circle cx="213.5" cy="182.9897637795276" r="10" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="208.496" y="179.6897637795276" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,359) scale(1,-1)">14</text>
+			<text x="740" y="187.0897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,374) scale(1,-1)">14</text>
+			<text x="764" y="187.0897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,374) scale(1,-1)">Optional stop_voice</text>
+			<text x="764" y="174.0897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,348) scale(1,-1)">Close provider bridge while retaining event-only socket where possible.</text>
+			<path d="M 458.75,146.789764 L 131.75,146.789764 Z" style="stroke: rgb(67%,35%,11%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="131.75 146.7898, 138.75 150.2898, 138.75 143.2898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(67%,35%,11%); fill-rule: evenodd;"/>
+			<circle cx="295.25" cy="146.7897637795276" r="10" style="stroke: rgb(67%,35%,11%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="290.246" y="143.48976377952758" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(67%,35%,11%); stroke:none;" transform="translate(0,286) scale(1,-1)">15</text>
+			<text x="740" y="150.88976377952758" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(67%,35%,11%); stroke:none;" transform="translate(0,301) scale(1,-1)">15</text>
+			<text x="764" y="150.88976377952758" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(67%,35%,11%); stroke:none;" transform="translate(0,301) scale(1,-1)">ALT unrecovered provider failure: voice_error</text>
+			<text x="764" y="137.88976377952758" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,275) scale(1,-1)">Sanitized reconnect/billing guidance; preserve usage and review reason.</text>
+			<text x="38" y="84" style="font-family: Helvetica; font-size: 10px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,168) scale(1,-1)">BOUNDARY The active protocol has no sequential STT -&gt; text model -&gt; TTS chain. Input transcription assists action gates asynchronously. No routine uploaded JPEG is forwarded to Realtime. Disconnect does not erase saved capture evidence.</text>
+			<text x="38" y="72" style="font-family: Helvetica; font-size: 10px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,144) scale(1,-1)">Native audio and inventory share one client WebSocket; the gateway owns a separate provider WebSocket.</text>
+			<text x="38" y="48" style="font-family: Helvetica; font-size: 8.5px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,96) scale(1,-1)">SOURCE ios/LibraryClaim/LiveAudio.swift:53 | ios/LibraryClaim/LiveAudio.swift:135 | claim_agent/server.py:448 | claim_agent/openai_live.py:286 | claim_agent/openai_live.py:495</text>
+		</g>
+	</g>
+</svg>

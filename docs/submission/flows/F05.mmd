@@ -1,0 +1,25 @@
+sequenceDiagram
+  autonumber
+  participant runner as SweepRunner
+  participant store as EvidenceStore / disk
+  participant vision as Vision + local router
+  participant ai as OpenAI Responses
+  participant catalog as Open Library
+  participant phone as iPhone client
+  participant bridge as Realtime bridge
+  runner->>store: IN-PROCESS: Dequeue frame#59; read hash-verified JPEG<br/>Duplicate-geometry job instead reuses source polygons with its own depth.
+  store-->>runner: RESPONSE: Saved image + calibrated evidence<br/>Receipt integrity establishes bytes, not recognition correctness.
+  runner->>vision: IN-PROCESS: Resolve local OCR / proposal evidence<br/>Apply independent text and detector support#59; optional catalogue lookup precedes cloud reservation.
+  vision->>catalog: REQUEST: OPTIONAL GET openlibrary.org/search.json<br/>Compatible book clues only: title, author, limit=3, selected metadata fields.
+  catalog-->>vision: RESPONSE: OPTIONAL candidate bibliographic metadata<br/>Corroboration only#59; catalogue ISBN/edition does not become observed evidence.
+  runner->>vision: IN-PROCESS: Quality / novelty / budget / cooldown decision<br/>Reserve and persist any cloud attempt before a billable provider request.
+  vision->>ai: REQUEST: POST /v1/responses (standard OpenAI base)<br/>gpt-6-astra#59; upright selected JPEG + hints#59; store:false#59; strict ProposedScan.
+  ai-->>vision: RESPONSE: Completed parsed output + usage<br/>Detections, polygons, visible text, quality issues, guidance#59; no price/scale authority.
+  vision-->>runner: RESPONSE: Validated scan + routing + quality<br/>Restore raw-image coordinates#59; reject malformed individual polygons.
+  runner->>runner: IN-PROCESS: Under lock: geometry, association and apply_scan<br/>Measure sensor-supported faces#59; match physical records#59; gate book identity on OCR.
+  runner->>store: IN-PROCESS: Save observation/overlays#59; revise state<br/>Increment revision, persist immutable refs and atomic state#59; queue eligible prices.
+  runner-->>phone: ASYNC EVENT: inventory {packet} via API WebSocket<br/>Full saved snapshot, including usage/cost estimate and unresolved review entries.
+  runner-->>phone: ASYNC EVENT: frame_overlays then recognition_status<br/>Overlay geometry#59; status ready/pending, routing, cost and provisional objects.
+  runner-->>phone: ASYNC EVENT: Optional guidance via API WebSocket<br/>User-facing capture guidance, separate from structured voice context.
+  runner->>bridge: IN-PROCESS: offer_context: saved recognition facts<br/>Grounded text context for Realtime (F03)#59; no routine JPEG copied to voice.
+  vision-->>runner: ALTERNATIVE / ERROR: ALT deferred / provider failure / worker failure<br/>Retain supported evidence#59; unknown usage is null#59; emit pending or unavailable status.

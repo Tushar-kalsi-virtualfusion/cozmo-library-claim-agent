@@ -1,0 +1,21 @@
+sequenceDiagram
+  autonumber
+  participant phone as iPhone client
+  participant api as FastAPI edge
+  participant bridge as Realtime bridge
+  participant rt as OpenAI Realtime
+  phone-->>api: ASYNC EVENT: audio {pcm_base64}<br/>Signed PCM16 mono at 16 kHz#59; microphone enabled only after voice_ready.
+  api->>bridge: IN-PROCESS: Validate and enqueue audio<br/>Even byte count#59; at most 32,000 bytes per native audio event.
+  bridge-->>rt: ASYNC EVENT: input_audio_buffer.append {audio}<br/>Stateful resampling to 24 kHz#59; provider VAD controls ordinary turn creation.
+  rt-->>bridge: ASYNC EVENT: input_audio_buffer.speech_started / speech_stopped / committed<br/>Independent transcription.completed and response events follow.
+  rt-->>bridge: ASYNC EVENT: response.output_audio.delta<br/>PCM16 mono 24 kHz plus response/item/content identifiers.
+  bridge-->>phone: ASYNC EVENT: audio via API event socket<br/>pcm_base64, sample_rate=24000, item_id, content_index, audio_end_ms.
+  phone->>phone: IN-PROCESS: Schedule playback on AVAudioPlayerNode<br/>Track cumulative played duration with dataPlayedBack callbacks.
+  phone-->>bridge: ASYNC EVENT: playback via API<br/>item_id, content_index, played_ms: receipt of audio actually played.
+  rt-->>bridge: ASYNC EVENT: Transcript and response.done events<br/>Forward transcript / turn_complete separately#59; record reported usage.
+  phone-->>api: ASYNC EVENT: ALT manual: interrupt_voice<br/>Phone stops queued playback and temporarily suppresses late audio.
+  api->>bridge: IN-PROCESS: Handle interruption request<br/>Spoken barge-in instead starts from provider input_audio_buffer.speech_started.
+  bridge-->>phone: ASYNC EVENT: interrupted via API<br/>Publish interrupted first#59; invalidate pending work and clear stale playback state.
+  bridge-->>rt: ASYNC EVENT: response.cancel#59; conversation.item.truncate<br/>Manual: response.cancel only if active#59; truncate only when an unplayed audio tail exists.
+  phone-->>api: ASYNC EVENT: Optional stop_voice<br/>Close provider bridge while retaining event-only socket where possible.
+  bridge-->>phone: ALTERNATIVE / ERROR: ALT unrecovered provider failure: voice_error<br/>Sanitized reconnect/billing guidance#59; preserve usage and review reason.

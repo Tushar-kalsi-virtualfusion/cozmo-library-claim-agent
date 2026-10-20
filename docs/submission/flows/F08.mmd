@@ -1,0 +1,21 @@
+sequenceDiagram
+  autonumber
+  participant web as Web review
+  participant api as FastAPI edge
+  participant runner as SweepRunner
+  participant store as EvidenceStore / disk
+  participant bridge as Realtime bridge
+  web->>api: REQUEST: POST /api/pair {token}<br/>Optional browser bootstrap#59; token supplied from review link fragment, then cleared.
+  api-->>web: RESPONSE: 200 {paired:true} + claim_pair cookie<br/>HttpOnly, SameSite=Strict#59; Secure only over HTTPS. Bad token: 401.
+  web->>api: REQUEST: GET /api/sweeps#59; GET /api/sweeps/{id}<br/>List latest 20 saved entries#59; select one for a current snapshot.
+  api->>runner: IN-PROCESS: runner_for(id): lazy load if needed<br/>After restart mark interrupted capture partial#59; resume eligible pricing only.
+  api-->>web: RESPONSE: 200 list / 200 ClaimPacket<br/>Packet includes sweep, room, books/items, totals, review_queue, revision, metrics.
+  web->>api: REQUEST: WS /api/sweeps/{id}/live<br/>Browser can stay event-only#59; it does not send start_voice.
+  api-->>web: ASYNC EVENT: Initial inventory, then updated packets/events<br/>Initial snapshot and later inventory use {type:"inventory",packet}.
+  web->>api: REQUEST: POST /api/sweeps/{id}/corrections<br/>JSON: action, ref_id, value. Use an exact saved inventory/shelf ID.
+  api->>runner: IN-PROCESS: correct(): resolve alias, validate and revise<br/>Invalidate affected price jobs/values#59; append owner claim/exclusion audit.
+  runner->>store: IN-PROCESS: Persist revised state and refresh finished bundle<br/>Print confirmation may enable pricing#59; unsupported claims require appraisal.
+  runner-->>web: ASYNC EVENT: inventory {packet} via API<br/>State publication occurs before the correction HTTP response.
+  api-->>web: RESPONSE: 200 updated ClaimPacket<br/>Invalid reference/action: 422#59; identical correction is not automatically deduplicated.
+  bridge->>runner: IN-PROCESS: ALTERNATIVE voice: correct_inventory tool<br/>Validated provider function event invokes the same method, not another HTTP service.
+  runner-->>bridge: RESPONSE: Internal snapshot/result -> function_call_output<br/>Tool result is sent back to Realtime by call_id#59; see F02/F03.

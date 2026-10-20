@@ -1,0 +1,22 @@
+sequenceDiagram
+  autonumber
+  participant phone as iPhone client
+  participant api as FastAPI edge
+  participant runner as SweepRunner
+  participant store as EvidenceStore / disk
+  phone->>phone: IN-PROCESS: Stop sampling#59; LiDAR RoomBuilder if supported<br/>Await encoder#59; save final geometry if available#59; drain pending uploads for up to 60 s.
+  phone-->>phone: ALTERNATIVE / ERROR: ALT pending evidence remains: Awaiting uploads<br/>Expose Retry finish#59; do not call server finish while pending files remain.
+  phone->>api: REQUEST: If available: POST /geometry after live drain<br/>Send final LiDAR geometry when present#59; camera or failed export skips it with capture issues.
+  api-->>phone: RESPONSE: 200 {saved:true}<br/>Require success when geometry exists#59; otherwise finalize with recorded geometry-failure issues.
+  phone->>api: REQUEST: POST /api/sweeps/{id}/finish<br/>duration_s and capture_issues#59; native request timeout 300 s.
+  api->>runner: IN-PROCESS: finish_lock#59; transition to processing<br/>Already ready/partial returns snapshot. Otherwise save/publish processing state.
+  runner->>runner: IN-PROCESS: Await frame queue, then price queue<br/>Workers run concurrently#59; bounded overall finish_timeout, source default 240 s.
+  runner-->>runner: ALTERNATIVE / ERROR: ALT deadline: cancel remaining workers<br/>Mark unfinished pricing unknown/reviewable#59; continue to partial packet.
+  runner->>store: IN-PROCESS: Compute Decimal totals#59; save final state<br/>Preserve ready/partial state, review queue and immutable evidence refs.
+  runner-->>phone: ASYNC EVENT: inventory {packet} via API<br/>Final snapshot is published before bundle generation#59; it does not prove the ZIP exists.
+  runner->>store: IN-PROCESS: Build bundle#59; update timing#59; save/rewrite bundle<br/>Generate JSON, HTML and ZIP#59; then offer capture-ended context to internal voice bridge.
+  runner-->>phone: ASYNC EVENT: packet_ready {packet} via API<br/>Emitted after bundle generation#59; final HTTP response follows.
+  api-->>phone: RESPONSE: 200 final/partial ClaimPacket<br/>Held HTTP response completes#59; this does not prove all acceptance bars passed.
+  phone->>api: REQUEST: GET /api/sweeps/{id}/packet.zip<br/>Optional alternatives: claim_packet.json, report.html, evidence path.
+  api->>store: IN-PROCESS: Rebuild bundle under lock#59; verify evidence hashes<br/>ZIP includes packet/report/manifest and registered evidence, not raw state.json.
+  api-->>phone: RESPONSE: 200 application/zip#59; filename claim_{id}.zip<br/>Native saves local download#59; optional comparison starts afterwards (F10).

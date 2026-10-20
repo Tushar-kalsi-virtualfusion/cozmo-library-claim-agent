@@ -1,0 +1,23 @@
+sequenceDiagram
+  autonumber
+  participant phone as iPhone client
+  participant api as FastAPI edge
+  participant bridge as Realtime bridge
+  participant setup as OnboardingSession
+  participant rt as OpenAI Realtime
+  rt-->>bridge: ASYNC EVENT: response.function_call_arguments.done<br/>present_setup: language, country, currency, capture_mode, prompt templates.
+  bridge->>setup: IN-PROCESS: Validate presented preferences and owner turn<br/>Render readback server-side#59; select LiDAR when supported, otherwise camera.
+  bridge-->>rt: ASYNC EVENT: conversation.item.create + response.create<br/>Function output by call_id#59; spoken full readback requested with tools disabled.
+  rt-->>phone: ASYNC EVENT: Assistant audio via bridge and API<br/>response.output_audio.delta -> audio#59; transcript/done tracked separately.
+  phone-->>bridge: ASYNC EVENT: playback via API: actual played_ms<br/>Audio completion + output transcript + played coverage open confirmation gate.
+  rt-->>bridge: ASYNC EVENT: Later owner turn: configure_session<br/>Matching preferences with confirmed:true after delivered readback.
+  bridge->>setup: IN-PROCESS: Store confirmed preferences in memory<br/>Onboarding session only#59; emit setup_confirmed and schedule separate readiness question.
+  bridge-->>phone: ASYNC EVENT: setup_confirmed {preferences}#59; readiness audio<br/>Phone acknowledges actual readiness-question playback before next gate.
+  rt-->>bridge: ASYNC EVENT: Later owner turn: request_capture {ready:true}<br/>Validate readiness phase, intelligible turn and physical sensor capability.
+  setup-->>phone: ASYNC EVENT: capture_requested via API<br/>Native closes onboarding voice/events before creating the sweep.
+  phone->>api: REQUEST: POST /api/sweeps<br/>JSON: device, onboarding_id. Retry lookup first checks persisted handoff.
+  api->>setup: IN-PROCESS: Consume setup and copy preferences / usage<br/>Persist onboarding_id with new sweep#59; close setup voice, refresh copied usage.
+  api-->>phone: RESPONSE: 200 ClaimPacket snapshot<br/>Same onboarding ID recovers existing sweep#59; invalid/expired handoff is 409.
+  phone->>phone: IN-PROCESS: Start shared AR/RoomPlan session<br/>Create capture outbox and clock#59; choose mode from returned sweep state.
+  phone->>api: REQUEST: WS /api/sweeps/{id}/live<br/>New sweep event connection#59; a new start_voice follows F01 provider setup.
+  api-->>phone: ASYNC EVENT: inventory {packet}#59; later voice_ready<br/>Initial snapshot is independent of new provider voice readiness.

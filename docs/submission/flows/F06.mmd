@@ -1,0 +1,23 @@
+sequenceDiagram
+  autonumber
+  participant phone as iPhone client
+  participant api as FastAPI edge
+  participant runner as SweepRunner
+  participant geometry as Geometry + tracking
+  participant store as EvidenceStore / disk
+  participant bridge as Realtime bridge
+  runner->>geometry: IN-PROCESS: For each scan polygon: measure detection<br/>Use original calibration and confident aligned depth#59; fit local plane/rays.
+  geometry-->>runner: RESPONSE: Dimensions / world support or unknown + reasons<br/>Book spine edges or visible object face#59; no invented full 3-D box.
+  runner->>geometry: IN-PROCESS: Associate physical track and furniture anchor<br/>Same session, one-to-one assignment, compatible category/depth/geometry.
+  geometry-->>runner: RESPONSE: Existing physical ID or new/reviewable record<br/>Text equality alone never merges physical objects#59; ambiguity stays explicit.
+  phone->>phone: IN-PROCESS: RoomPlan live update on shared AR session<br/>Throttle >=3 s#59; retain latest snapshot#59; only one geometry request in flight.
+  phone->>api: REQUEST: POST /api/sweeps/{id}/geometry<br/>After accepted frame: session ID, walls/openings/objects#59; live floors:[], capture_complete:false.
+  api->>runner: IN-PROCESS: Validate session and geometry write state<br/>Camera mode, absent first frame or mismatched session reject#59; same bytes are idempotent.
+  runner->>store: IN-PROCESS: Save immutable geometry/room_<id>.json<br/>Preserve the input geometry before reconciling measurements.
+  runner->>geometry: IN-PROCESS: measure_room + reconcile furniture<br/>Floor/wall polygons, openings, wall height, supported RoomPlan boxes, one-to-one matches.
+  geometry-->>runner: RESPONSE: Room facts / furniture dimensions / review issues<br/>Curved or incomplete surfaces and ambiguous links preserve unknowns.
+  runner->>store: IN-PROCESS: Update state#59; refresh affected price queries<br/>Clear obsolete dimensions on revision#59; stale quotes cannot apply.
+  runner-->>phone: ASYNC EVENT: inventory {packet} via API WebSocket<br/>Event update can arrive before the geometry HTTP response.
+  runner->>bridge: IN-PROCESS: offer_context: measurement facts<br/>Optional grounded voice cue#59; this is an internal bridge call, not a phone event.
+  api-->>phone: RESPONSE: 200 {saved:true}<br/>422 unsupported/session-invalid#59; 409 changed geometry after capture ended.
+  phone->>api: REQUEST: At end, if available: POST final geometry<br/>LiDAR RoomBuilder output before /finish#59; failures become capture issues and geometry may be skipped.

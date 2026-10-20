@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1190.5511811023623" height="841.8897637795277" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1190 841" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1190.5511811023623" height="841.8897637795277"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-841)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1190.5511811023623" height="841.8897637795277" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="38" y="813.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1627) scale(1,-1)">LIBRARY CLAIM / SERVICE FLOWS</text>
+			<text x="38" y="782.8897637795277" style="font-family: Helvetica-Bold; font-size: 24px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1565) scale(1,-1)">F05 Recognize a frame and publish inventory - part 1/2</text>
+			<text x="38" y="761.8897637795277" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1523) scale(1,-1)">Frame workers run concurrently; publication order can differ from capture order.</text>
+			<text x="38" y="20.0" style="font-family: Helvetica; font-size: 8.5px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,40) scale(1,-1)">As implemented 20 October 2026 | Solid: request/call | Dashed: response | Purple: asynchronous event | Grey: in-process</text>
+			<rect x="38" y="647.6897637795277" width="1114.5511811023623" height="36.200000000000045" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="563.0897637795277" width="1114.5511811023623" height="48.39999999999998" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="478.4897637795277" width="1114.5511811023623" height="48.39999999999998" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="406.0897637795277" width="1114.5511811023623" height="36.19999999999999" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="54.50000000000001" y="701.8897637795277" width="84.42857142857144" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="63.37428571428572" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">SweepRunner</text>
+			<path d="M 96.714286,696.889764 L 96.714286,352.689764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="147.92857142857142" y="701.8897637795277" width="84.42857142857142" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(92%,94%,94%); fill-rule: evenodd;"/>
+			<text x="155.40785714285715" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">EvidenceStore</text>
+			<text x="177.35785714285714" y="717.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1435) scale(1,-1)">/ disk</text>
+			<path d="M 190.142857,696.889764 L 190.142857,352.689764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="241.35714285714283" y="701.8897637795277" width="84.42857142857144" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="251.47142857142856" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">Vision + local</text>
+			<text x="269.12642857142856" y="717.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1435) scale(1,-1)">router</text>
+			<path d="M 283.571429,696.889764 L 283.571429,352.689764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="334.7857142857143" y="701.8897637795277" width="84.42857142857144" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,91%,98%); fill-rule: evenodd;"/>
+			<text x="359.22" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">OpenAI</text>
+			<text x="350.325" y="717.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1435) scale(1,-1)">Responses</text>
+			<path d="M 377,696.889764 L 377,352.689764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="428.2142857142857" y="701.8897637795277" width="84.42857142857139" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(98%,94%,87%); fill-rule: evenodd;"/>
+			<text x="439.30857142857144" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">Open Library</text>
+			<path d="M 470.428571,696.889764 L 470.428571,352.689764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="521.6428571428572" y="701.8897637795277" width="84.42857142857144" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,94%,92%); fill-rule: evenodd;"/>
+			<text x="532.7371428571429" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">iPhone client</text>
+			<path d="M 563.857143,696.889764 L 563.857143,352.689764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="615.0714285714287" y="701.8897637795277" width="84.42857142857144" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="636.4457142857143" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">Realtime</text>
+			<text x="642.0057142857144" y="717.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1435) scale(1,-1)">bridge</text>
+			<path d="M 657.285714,696.889764 L 657.285714,352.689764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<text x="764" y="728.8897637795277" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1457) scale(1,-1)">MESSAGE / PAYLOAD / RESULT</text>
+			<text x="764" y="709.8897637795277" style="font-family: Helvetica; font-size: 10px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1419) scale(1,-1)">Read downward; numbers match the arrows.</text>
+			<path d="M 734,744.889764 L 734,352.689764 Z" style="stroke: rgb(78%,83%,82%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 96.714286,665.789764 L 190.142857,665.789764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="190.1429 665.7898, 183.1429 669.2898, 183.1429 662.2898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,48%,50%); fill-rule: evenodd;"/>
+			<circle cx="143.42857142857144" cy="665.7897637795277" r="10" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="138.42457142857145" y="662.4897637795277" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1324) scale(1,-1)">01</text>
+			<text x="740" y="669.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1339) scale(1,-1)">01</text>
+			<text x="764" y="669.8897637795277" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1339) scale(1,-1)">Dequeue frame; read hash-verified JPEG</text>
+			<text x="764" y="656.8897637795277" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1313) scale(1,-1)">Duplicate-geometry job instead reuses source polygons with its own depth.</text>
+			<path d="M 190.142857,629.589764 L 96.714286,629.589764 Z" style="stroke: rgb(13%,42%,60%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 5, 3;"/>
+			<polygon points="96.71429 629.5898, 103.7143 633.0898, 103.7143 626.0898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,42%,60%); fill-rule: evenodd;"/>
+			<circle cx="143.42857142857144" cy="629.5897637795276" r="10" style="stroke: rgb(13%,42%,60%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="138.42457142857145" y="626.2897637795277" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,1252) scale(1,-1)">02</text>
+			<text x="740" y="633.6897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,1267) scale(1,-1)">02</text>
+			<text x="764" y="633.6897637795277" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,1267) scale(1,-1)">Saved image + calibrated evidence</text>
+			<text x="764" y="620.6897637795277" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1241) scale(1,-1)">Receipt integrity establishes bytes, not recognition correctness.</text>
+			<path d="M 96.714286,587.289764 L 283.571429,587.289764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="283.5714 587.2898, 276.5714 590.7898, 276.5714 583.7898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,48%,50%); fill-rule: evenodd;"/>
+			<circle cx="190.14285714285714" cy="587.2897637795276" r="10" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="185.13885714285715" y="583.9897637795276" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1167) scale(1,-1)">03</text>
+			<text x="740" y="597.4897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1194) scale(1,-1)">03</text>
+			<text x="764" y="597.4897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1194) scale(1,-1)">Resolve local OCR / proposal evidence</text>
+			<text x="764" y="584.4897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1168) scale(1,-1)">Apply independent text and detector support; optional catalogue lookup</text>
+			<text x="764" y="572.2897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1144) scale(1,-1)">precedes cloud reservation.</text>
+			<path d="M 283.571429,544.989764 L 470.428571,544.989764 Z" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="470.4286 544.9898, 463.4286 548.4898, 463.4286 541.4898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(7%,46%,37%); fill-rule: evenodd;"/>
+			<circle cx="377.0" cy="544.9897637795276" r="10" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="371.996" y="541.6897637795277" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,1083) scale(1,-1)">04</text>
+			<text x="740" y="549.0897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,1098) scale(1,-1)">04</text>
+			<text x="764" y="549.0897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,1098) scale(1,-1)">OPTIONAL GET openlibrary.org/search.json</text>
+			<text x="764" y="536.0897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1072) scale(1,-1)">Compatible book clues only: title, author, limit=3, selected metadata fields.</text>
+			<path d="M 470.428571,502.689764 L 283.571429,502.689764 Z" style="stroke: rgb(13%,42%,60%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 5, 3;"/>
+			<polygon points="283.5714 502.6898, 290.5714 506.1898, 290.5714 499.1898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,42%,60%); fill-rule: evenodd;"/>
+			<circle cx="377.0" cy="502.6897637795276" r="10" style="stroke: rgb(13%,42%,60%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="371.996" y="499.3897637795276" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,998) scale(1,-1)">05</text>
+			<text x="740" y="512.8897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,1025) scale(1,-1)">05</text>
+			<text x="764" y="512.8897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,1025) scale(1,-1)">OPTIONAL candidate bibliographic metadata</text>
+			<text x="764" y="499.8897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,999) scale(1,-1)">Corroboration only; catalogue ISBN/edition does not become observed</text>
+			<text x="764" y="487.6897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,975) scale(1,-1)">evidence.</text>
+			<path d="M 96.714286,460.389764 L 283.571429,460.389764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="283.5714 460.3898, 276.5714 463.8898, 276.5714 456.8898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,48%,50%); fill-rule: evenodd;"/>
+			<circle cx="190.14285714285714" cy="460.3897637795276" r="10" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="185.13885714285715" y="457.0897637795276" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,914) scale(1,-1)">06</text>
+			<text x="740" y="464.4897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,928) scale(1,-1)">06</text>
+			<text x="764" y="464.4897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,928) scale(1,-1)">Quality / novelty / budget / cooldown decision</text>
+			<text x="764" y="451.4897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,902) scale(1,-1)">Reserve and persist any cloud attempt before a billable provider request.</text>
+			<path d="M 283.571429,424.189764 L 377,424.189764 Z" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="377 424.1898, 370 427.6898, 370 420.6898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(7%,46%,37%); fill-rule: evenodd;"/>
+			<circle cx="330.2857142857143" cy="424.1897637795276" r="10" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="325.28171428571426" y="420.8897637795276" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,841) scale(1,-1)">07</text>
+			<text x="740" y="428.2897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,856) scale(1,-1)">07</text>
+			<text x="764" y="428.2897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,856) scale(1,-1)">POST /v1/responses (standard OpenAI base)</text>
+			<text x="764" y="415.2897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,830) scale(1,-1)">gpt-6-astra; upright selected JPEG + hints; store:false; strict ProposedScan.</text>
+			<path d="M 377,381.889764 L 283.571429,381.889764 Z" style="stroke: rgb(13%,42%,60%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 5, 3;"/>
+			<polygon points="283.5714 381.8898, 290.5714 385.3898, 290.5714 378.3898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,42%,60%); fill-rule: evenodd;"/>
+			<circle cx="330.2857142857143" cy="381.88976377952764" r="10" style="stroke: rgb(13%,42%,60%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="325.28171428571426" y="378.58976377952763" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,757) scale(1,-1)">08</text>
+			<text x="740" y="392.08976377952763" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,784) scale(1,-1)">08</text>
+			<text x="764" y="392.08976377952763" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,784) scale(1,-1)">Completed parsed output + usage</text>
+			<text x="764" y="379.08976377952763" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,758) scale(1,-1)">Detections, polygons, visible text, quality issues, guidance; no price/scale</text>
+			<text x="764" y="366.88976377952764" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,733) scale(1,-1)">authority.</text>
+			<text x="38" y="84" style="font-family: Helvetica; font-size: 10px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,168) scale(1,-1)">BOUNDARY Current phone produces no local semantic book clues; Open Library is a compatibility branch, not the normal current path. Quality/budget/cooldown can defer cloud. Model labels do not set dimensions or prices.</text>
+			<text x="38" y="48" style="font-family: Helvetica; font-size: 8.5px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,96) scale(1,-1)">SOURCE claim_agent/pipeline.py:237 | claim_agent/local_evidence.py:67 | claim_agent/local_evidence.py:161 | claim_agent/openai_provider.py:24 | claim_agent/pipeline.py:286</text>
+		</g>
+	</g>
+</svg>

@@ -6,6 +6,8 @@ The phone handles camera/depth acquisition, local proposals, OCR, preview tracki
 
 This is not a completed measured-accuracy submission. A saved physical sweep and repair evidence exist, but the required full library ground truth and pass-bar evaluation have not been established. The most recent pricing run encountered `credit_balance_exhausted`. Configuration and successful earlier provider probes do not establish present funded access.
 
+The PDF includes a full landscape appendix with 12 numbered request/response flows and an endpoint index. The [service flow guide](service-flows.md) provides individual SVG diagrams and editable Mermaid source covering setup, streamed audio, capture, recognition, LiDAR geometry, pricing, corrections, export, comparison, second-market valuation and recovery. Requests, responses, asynchronous events and internal calls are distinguished.
+
 ## 1. Execution boundaries and model responsibilities
 
 | Component | Runs where | Input and responsibility | Authority limit |

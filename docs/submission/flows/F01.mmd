@@ -1,0 +1,21 @@
+sequenceDiagram
+  autonumber
+  participant phone as iPhone client
+  participant api as FastAPI edge
+  participant setup as OnboardingSession
+  participant bridge as Realtime bridge
+  participant rt as OpenAI Realtime
+  phone->>api: REQUEST: POST /api/onboarding<br/>JSON: device, capture_supported (LiDAR), camera_supported.
+  api->>setup: IN-PROCESS: Create bounded in-memory setup session<br/>Expire/consume old sessions#59; at most 8 live setup sessions#59; TTL 600 s.
+  api-->>phone: RESPONSE: 200 {id, expires_in_s: 600}<br/>Alternative: 409 conversation limit#59; common auth/schema errors apply.
+  phone->>api: REQUEST: GET /api/health<br/>Read advertised OpenAI voice transport/readiness#59; no provider request.
+  api-->>phone: RESPONSE: 200 capability/configuration JSON<br/>Require voice_transport=realtime, assistant_provider=openai, realtime_ready=true.
+  phone->>api: REQUEST: WS /api/onboarding/{id}/live<br/>Authenticated WebSocket handshake#59; startVoice:false in native client.
+  api-->>phone: RESPONSE: WebSocket accepted#59; listener attached<br/>Independent event sender#59; stored setup events may be replayed.
+  phone->>phone: IN-PROCESS: Prepare AVAudioEngine and event tasks<br/>Settle voice-processing audio graph before asking for paid voice.
+  phone-->>api: ASYNC EVENT: start_voice<br/>JSON control event#59; await voice_ready or voice_error, not an HTTP reply.
+  api->>bridge: IN-PROCESS: Select OpenAILiveBridge and claim voice owner<br/>A second voice owner gets voice_error#59; event socket can remain open.
+  bridge->>rt: REQUEST: WSS api.openai.com/v1/realtime?model=...<br/>Server credential#59; configured gpt-realtime-2.1 in submission configuration.
+  bridge-->>rt: ASYNC EVENT: session.update<br/>24 kHz PCM, Marin, semantic VAD, tools, asynchronous input transcription.
+  rt-->>bridge: ASYNC EVENT: session.updated<br/>Provider acknowledges configuration#59; wait bounded to 20 s.
+  bridge-->>phone: ASYNC EVENT: voice_ready (via FastAPI event sender)<br/>Server enqueues voice_ready and requests the greeting#59; native enables microphone when voice_ready arrives.

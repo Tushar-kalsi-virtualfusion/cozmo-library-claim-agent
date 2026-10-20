@@ -1,0 +1,1901 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-20",
+  "scope": "As-built source audit of active OpenAI path; optional legacy interfaces explicitly labelled.",
+  "flows": [
+    {
+      "id": "F01",
+      "title": "Open a session and connect voice",
+      "subtitle": "HTTP creates setup state; the client WebSocket and provider WebSocket are separate connections.",
+      "participants": [
+        {
+          "id": "phone",
+          "name": "iPhone client",
+          "kind": "phone"
+        },
+        {
+          "id": "api",
+          "name": "FastAPI edge",
+          "kind": "internal"
+        },
+        {
+          "id": "setup",
+          "name": "OnboardingSession",
+          "kind": "internal"
+        },
+        {
+          "id": "bridge",
+          "name": "Realtime bridge",
+          "kind": "internal"
+        },
+        {
+          "id": "rt",
+          "name": "OpenAI Realtime",
+          "kind": "cloud"
+        }
+      ],
+      "note": "The native app sends a bearer pairing token; it does not call /api/pair. Health reports configuration, not funded access. A voice_ready event, not socket open, enables microphone sending.",
+      "sources": [
+        "claim_agent/server.py:262",
+        "claim_agent/server.py:422",
+        "claim_agent/openai_live.py:633",
+        "ios/LibraryClaim/CaptureController.swift:584"
+      ],
+      "steps": [
+        {
+          "from": "phone",
+          "to": "api",
+          "kind": "request",
+          "label": "POST /api/onboarding",
+          "detail": "JSON: device, capture_supported (LiDAR), camera_supported."
+        },
+        {
+          "from": "api",
+          "to": "setup",
+          "kind": "internal",
+          "label": "Create bounded in-memory setup session",
+          "detail": "Expire/consume old sessions; at most 8 live setup sessions; TTL 600 s."
+        },
+        {
+          "from": "api",
+          "to": "phone",
+          "kind": "response",
+          "label": "200 {id, expires_in_s: 600}",
+          "detail": "Alternative: 409 conversation limit; common auth/schema errors apply."
+        },
+        {
+          "from": "phone",
+          "to": "api",
+          "kind": "request",
+          "label": "GET /api/health",
+          "detail": "Read advertised OpenAI voice transport/readiness; no provider request."
+        },
+        {
+          "from": "api",
+          "to": "phone",
+          "kind": "response",
+          "label": "200 capability/configuration JSON",
+          "detail": "Require voice_transport=realtime, assistant_provider=openai, realtime_ready=true."
+        },
+        {
+          "from": "phone",
+          "to": "api",
+          "kind": "request",
+          "label": "WS /api/onboarding/{id}/live",
+          "detail": "Authenticated WebSocket handshake; startVoice:false in native client."
+        },
+        {
+          "from": "api",
+          "to": "phone",
+          "kind": "response",
+          "label": "WebSocket accepted; listener attached",
+          "detail": "Independent event sender; stored setup events may be replayed."
+        },
+        {
+          "from": "phone",
+          "to": "phone",
+          "kind": "internal",
+          "label": "Prepare AVAudioEngine and event tasks",
+          "detail": "Settle voice-processing audio graph before asking for paid voice."
+        },
+        {
+          "from": "phone",
+          "to": "api",
+          "kind": "event",
+          "label": "start_voice",
+          "detail": "JSON control event; await voice_ready or voice_error, not an HTTP reply."
+        },
+        {
+          "from": "api",
+          "to": "bridge",
+          "kind": "internal",
+          "label": "Select OpenAILiveBridge and claim voice owner",
+          "detail": "A second voice owner gets voice_error; event socket can remain open."
+        },
+        {
+          "from": "bridge",
+          "to": "rt",
+          "kind": "request",
+          "label": "WSS api.openai.com/v1/realtime?model=...",
+          "detail": "Server credential; configured gpt-realtime-2.1 in submission configuration."
+        },
+        {
+          "from": "bridge",
+          "to": "rt",
+          "kind": "event",
+          "label": "session.update",
+          "detail": "24 kHz PCM, Marin, semantic VAD, tools, asynchronous input transcription."
+        },
+        {
+          "from": "rt",
+          "to": "bridge",
+          "kind": "event",
+          "label": "session.updated",
+          "detail": "Provider acknowledges configuration; wait bounded to 20 s."
+        },
+        {
+          "from": "bridge",
+          "to": "phone",
+          "kind": "event",
+          "label": "voice_ready (via FastAPI event sender)",
+          "detail": "Server enqueues voice_ready and requests the greeting; native enables microphone when voice_ready arrives."
+        }
+      ]
+    },
+    {
+      "id": "F02",
+      "title": "Spoken setup, readiness and capture handoff",
+      "subtitle": "Tool requests are provider events; the server validates them and changes setup state in process.",
+      "participants": [
+        {
+          "id": "phone",
+          "name": "iPhone client",
+          "kind": "phone"
+        },
+        {
+          "id": "api",
+          "name": "FastAPI edge",
+          "kind": "internal"
+        },
+        {
+          "id": "bridge",
+          "name": "Realtime bridge",
+          "kind": "internal"
+        },
+        {
+          "id": "setup",
+          "name": "OnboardingSession",
+          "kind": "internal"
+        },
+        {
+          "id": "rt",
+          "name": "OpenAI Realtime",
+          "kind": "cloud"
+        }
+      ],
+      "note": "Confirmation intent is model-interpreted. Code enforces later intelligible owner turns, gate versions and matching arguments; playback must cover readback and readiness. Preview may run, evidence capture does not.",
+      "sources": [
+        "claim_agent/openai_live.py:187",
+        "claim_agent/openai_live.py:426",
+        "claim_agent/onboarding.py:110",
+        "claim_agent/server.py:211",
+        "ios/LibraryClaim/CaptureController.swift:205"
+      ],
+      "steps": [
+        {
+          "from": "rt",
+          "to": "bridge",
+          "kind": "event",
+          "label": "response.function_call_arguments.done",
+          "detail": "present_setup: language, country, currency, capture_mode, prompt templates."
+        },
+        {
+          "from": "bridge",
+          "to": "setup",
+          "kind": "internal",
+          "label": "Validate presented preferences and owner turn",
+          "detail": "Render readback server-side; select LiDAR when supported, otherwise camera."
+        },
+        {
+          "from": "bridge",
+          "to": "rt",
+          "kind": "event",
+          "label": "conversation.item.create + response.create",
+          "detail": "Function output by call_id; spoken full readback requested with tools disabled."
+        },
+        {
+          "from": "rt",
+          "to": "phone",
+          "kind": "event",
+          "label": "Assistant audio via bridge and API",
+          "detail": "response.output_audio.delta -> audio; transcript/done tracked separately."
+        },
+        {
+          "from": "phone",
+          "to": "bridge",
+          "kind": "event",
+          "label": "playback via API: actual played_ms",
+          "detail": "Audio completion + output transcript + played coverage open confirmation gate."
+        },
+        {
+          "from": "rt",
+          "to": "bridge",
+          "kind": "event",
+          "label": "Later owner turn: configure_session",
+          "detail": "Matching preferences with confirmed:true after delivered readback."
+        },
+        {
+          "from": "bridge",
+          "to": "setup",
+          "kind": "internal",
+          "label": "Store confirmed preferences in memory",
+          "detail": "Onboarding session only; emit setup_confirmed and schedule separate readiness question."
+        },
+        {
+          "from": "bridge",
+          "to": "phone",
+          "kind": "event",
+          "label": "setup_confirmed {preferences}; readiness audio",
+          "detail": "Phone acknowledges actual readiness-question playback before next gate."
+        },
+        {
+          "from": "rt",
+          "to": "bridge",
+          "kind": "event",
+          "label": "Later owner turn: request_capture {ready:true}",
+          "detail": "Validate readiness phase, intelligible turn and physical sensor capability."
+        },
+        {
+          "from": "setup",
+          "to": "phone",
+          "kind": "event",
+          "label": "capture_requested via API",
+          "detail": "Native closes onboarding voice/events before creating the sweep."
+        },
+        {
+          "from": "phone",
+          "to": "api",
+          "kind": "request",
+          "label": "POST /api/sweeps",
+          "detail": "JSON: device, onboarding_id. Retry lookup first checks persisted handoff."
+        },
+        {
+          "from": "api",
+          "to": "setup",
+          "kind": "internal",
+          "label": "Consume setup and copy preferences / usage",
+          "detail": "Persist onboarding_id with new sweep; close setup voice, refresh copied usage."
+        },
+        {
+          "from": "api",
+          "to": "phone",
+          "kind": "response",
+          "label": "200 ClaimPacket snapshot",
+          "detail": "Same onboarding ID recovers existing sweep; invalid/expired handoff is 409."
+        },
+        {
+          "from": "phone",
+          "to": "phone",
+          "kind": "internal",
+          "label": "Start shared AR/RoomPlan session",
+          "detail": "Create capture outbox and clock; choose mode from returned sweep state."
+        },
+        {
+          "from": "phone",
+          "to": "api",
+          "kind": "request",
+          "label": "WS /api/sweeps/{id}/live",
+          "detail": "New sweep event connection; a new start_voice follows F01 provider setup."
+        },
+        {
+          "from": "api",
+          "to": "phone",
+          "kind": "event",
+          "label": "inventory {packet}; later voice_ready",
+          "detail": "Initial snapshot is independent of new provider voice readiness."
+        }
+      ]
+    },
+    {
+      "id": "F03",
+      "title": "Stream audio, acknowledge playback and interrupt",
+      "subtitle": "Audio and transcript events stream asynchronously; generation completion does not prove playback.",
+      "participants": [
+        {
+          "id": "phone",
+          "name": "iPhone client",
+          "kind": "phone"
+        },
+        {
+          "id": "api",
+          "name": "FastAPI edge",
+          "kind": "internal"
+        },
+        {
+          "id": "bridge",
+          "name": "Realtime bridge",
+          "kind": "internal"
+        },
+        {
+          "id": "rt",
+          "name": "OpenAI Realtime",
+          "kind": "cloud"
+        }
+      ],
+      "note": "The active protocol has no sequential STT -> text model -> TTS chain. Input transcription assists action gates asynchronously. No routine uploaded JPEG is forwarded to Realtime. Disconnect does not erase saved capture evidence. Native audio and inventory share one client WebSocket; the gateway owns a separate provider WebSocket.",
+      "sources": [
+        "ios/LibraryClaim/LiveAudio.swift:53",
+        "ios/LibraryClaim/LiveAudio.swift:135",
+        "claim_agent/server.py:448",
+        "claim_agent/openai_live.py:286",
+        "claim_agent/openai_live.py:495"
+      ],
+      "steps": [
+        {
+          "from": "phone",
+          "to": "api",
+          "kind": "event",
+          "label": "audio {pcm_base64}",
+          "detail": "Signed PCM16 mono at 16 kHz; microphone enabled only after voice_ready."
+        },
+        {
+          "from": "api",
+          "to": "bridge",
+          "kind": "internal",
+          "label": "Validate and enqueue audio",
+          "detail": "Even byte count; at most 32,000 bytes per native audio event."
+        },
+        {
+          "from": "bridge",
+          "to": "rt",
+          "kind": "event",
+          "label": "input_audio_buffer.append {audio}",
+          "detail": "Stateful resampling to 24 kHz; provider VAD controls ordinary turn creation."
+        },
+        {
+          "from": "rt",
+          "to": "bridge",
+          "kind": "event",
+          "label": "input_audio_buffer.speech_started / speech_stopped / committed",
+          "detail": "Independent transcription.completed and response events follow."
+        },
+        {
+          "from": "rt",
+          "to": "bridge",
+          "kind": "event",
+          "label": "response.output_audio.delta",
+          "detail": "PCM16 mono 24 kHz plus response/item/content identifiers."
+        },
+        {
+          "from": "bridge",
+          "to": "phone",
+          "kind": "event",
+          "label": "audio via API event socket",
+          "detail": "pcm_base64, sample_rate=24000, item_id, content_index, audio_end_ms."
+        },
+        {
+          "from": "phone",
+          "to": "phone",
+          "kind": "internal",
+          "label": "Schedule playback on AVAudioPlayerNode",
+          "detail": "Track cumulative played duration with dataPlayedBack callbacks."
+        },
+        {
+          "from": "phone",
+          "to": "bridge",
+          "kind": "event",
+          "label": "playback via API",
+          "detail": "item_id, content_index, played_ms: receipt of audio actually played."
+        },
+        {
+          "from": "rt",
+          "to": "bridge",
+          "kind": "event",
+          "label": "Transcript and response.done events",
+          "detail": "Forward transcript / turn_complete separately; record reported usage."
+        },
+        {
+          "from": "phone",
+          "to": "api",
+          "kind": "event",
+          "label": "ALT manual: interrupt_voice",
+          "detail": "Phone stops queued playback and temporarily suppresses late audio."
+        },
+        {
+          "from": "api",
+          "to": "bridge",
+          "kind": "internal",
+          "label": "Handle interruption request",
+          "detail": "Spoken barge-in instead starts from provider input_audio_buffer.speech_started."
+        },
+        {
+          "from": "bridge",
+          "to": "phone",
+          "kind": "event",
+          "label": "interrupted via API",
+          "detail": "Publish interrupted first; invalidate pending work and clear stale playback state."
+        },
+        {
+          "from": "bridge",
+          "to": "rt",
+          "kind": "event",
+          "label": "response.cancel; conversation.item.truncate",
+          "detail": "Manual: response.cancel only if active; truncate only when an unplayed audio tail exists."
+        },
+        {
+          "from": "phone",
+          "to": "api",
+          "kind": "event",
+          "label": "Optional stop_voice",
+          "detail": "Close provider bridge while retaining event-only socket where possible."
+        },
+        {
+          "from": "bridge",
+          "to": "phone",
+          "kind": "error",
+          "label": "ALT unrecovered provider failure: voice_error",
+          "detail": "Sanitized reconnect/billing guidance; preserve usage and review reason."
+        }
+      ]
+    },
+    {
+      "id": "F04",
+      "title": "Select, retain and upload camera evidence",
+      "subtitle": "An HTTP receipt acknowledges immutable admission or suppression. Recognition completes later (F05).",
+      "participants": [
+        {
+          "id": "sensor",
+          "name": "ARKit / CoreML / OCR",
+          "kind": "phone"
+        },
+        {
+          "id": "phone",
+          "name": "iPhone client",
+          "kind": "phone"
+        },
+        {
+          "id": "outbox",
+          "name": "Phone disk outbox",
+          "kind": "store"
+        },
+        {
+          "id": "api",
+          "name": "FastAPI edge",
+          "kind": "internal"
+        },
+        {
+          "id": "runner",
+          "name": "SweepRunner",
+          "kind": "internal"
+        },
+        {
+          "id": "store",
+          "name": "EvidenceStore / disk",
+          "kind": "store"
+        }
+      ],
+      "note": "The phone retains acknowledged bytes. Same-ID retries cannot change metadata/calibration. Similar-image suppression stores metadata, not a second JPEG; exact RGB plus new depth may queue geometry-only refinement.",
+      "sources": [
+        "ios/LibraryClaim/LocalRecognitionModels.swift:142",
+        "ios/LibraryClaim/FrameEncoder.swift:48",
+        "ios/LibraryClaim/EvidenceOutbox.swift:23",
+        "claim_agent/pipeline.py:154",
+        "claim_agent/server.py:361"
+      ],
+      "steps": [
+        {
+          "from": "sensor",
+          "to": "phone",
+          "kind": "response",
+          "label": "Local detector proposals + quality + fingerprint",
+          "detail": "Core ML full frame/detail crops; display provisional dotted outlines."
+        },
+        {
+          "from": "phone",
+          "to": "phone",
+          "kind": "internal",
+          "label": "Apply selection and concurrency gates",
+          "detail": "Tracking, blur/exposure, novelty, pending count, time interval, depth improvement."
+        },
+        {
+          "from": "phone",
+          "to": "sensor",
+          "kind": "internal",
+          "label": "Encode selected frame and run Vision OCR",
+          "detail": "Raw-axis JPEG + calibration/pose + OCR; LiDAR depth/confidence if supported."
+        },
+        {
+          "from": "sensor",
+          "to": "phone",
+          "kind": "response",
+          "label": "Encoded FrameUpload payload",
+          "detail": "local_analysis=cloud_requested/unavailable; no Apple language model call."
+        },
+        {
+          "from": "phone",
+          "to": "outbox",
+          "kind": "internal",
+          "label": "Atomically save pending/{frame_id}.json",
+          "detail": "Immutable bytes before network; 1 GB outbox budget."
+        },
+        {
+          "from": "outbox",
+          "to": "phone",
+          "kind": "response",
+          "label": "Earliest pending frame payload",
+          "detail": "One uploader sends saved frames sequentially; retries reuse exact bytes."
+        },
+        {
+          "from": "phone",
+          "to": "api",
+          "kind": "request",
+          "label": "POST /api/sweeps/{id}/frames",
+          "detail": "metadata, jpeg_base64, depth_base64, confidence_base64; bearer auth."
+        },
+        {
+          "from": "api",
+          "to": "runner",
+          "kind": "internal",
+          "label": "Validate payload and compute receipt signature",
+          "detail": "Dimensions, image/depth lengths, same AR session and capture state."
+        },
+        {
+          "from": "runner",
+          "to": "store",
+          "kind": "internal",
+          "label": "Persist evidence, receipt and queued state",
+          "detail": "New frames enter bounded queue; JPEG content is hash-addressed."
+        },
+        {
+          "from": "api",
+          "to": "phone",
+          "kind": "response",
+          "label": "200 {accepted:true, processing:\"queued\", ...}",
+          "detail": "duplicate:false and queue_depth for new frames; not a recognition result."
+        },
+        {
+          "from": "phone",
+          "to": "outbox",
+          "kind": "internal",
+          "label": "Move pending file to uploaded/",
+          "detail": "Preserve bytes; accepted frame unlocks live geometry upload."
+        },
+        {
+          "from": "api",
+          "to": "phone",
+          "kind": "error",
+          "label": "ALT full queue: 429 + Retry-After: 3",
+          "detail": "detail.processing=retry_backpressure, accepted:false, retry_after_s:3."
+        },
+        {
+          "from": "phone",
+          "to": "outbox",
+          "kind": "internal",
+          "label": "ALT retain pending; delay and retry same bytes",
+          "detail": "Other upload errors also retain pending evidence; no second frame ID."
+        },
+        {
+          "from": "api",
+          "to": "phone",
+          "kind": "response",
+          "label": "ALT duplicate: 200 with duplicate:true",
+          "detail": "processing=duplicate_suppressed or queued_geometry; original receipt may replay."
+        }
+      ]
+    },
+    {
+      "id": "F05",
+      "title": "Recognize a frame and publish inventory",
+      "subtitle": "Frame workers run concurrently; publication order can differ from capture order.",
+      "participants": [
+        {
+          "id": "runner",
+          "name": "SweepRunner",
+          "kind": "internal"
+        },
+        {
+          "id": "store",
+          "name": "EvidenceStore / disk",
+          "kind": "store"
+        },
+        {
+          "id": "vision",
+          "name": "Vision + local router",
+          "kind": "internal"
+        },
+        {
+          "id": "ai",
+          "name": "OpenAI Responses",
+          "kind": "cloud"
+        },
+        {
+          "id": "catalog",
+          "name": "Open Library",
+          "kind": "web"
+        },
+        {
+          "id": "phone",
+          "name": "iPhone client",
+          "kind": "phone"
+        },
+        {
+          "id": "bridge",
+          "name": "Realtime bridge",
+          "kind": "internal"
+        }
+      ],
+      "note": "Current phone produces no local semantic book clues; Open Library is a compatibility branch, not the normal current path. Quality/budget/cooldown can defer cloud. Model labels do not set dimensions or prices.",
+      "sources": [
+        "claim_agent/pipeline.py:237",
+        "claim_agent/local_evidence.py:67",
+        "claim_agent/local_evidence.py:161",
+        "claim_agent/openai_provider.py:24",
+        "claim_agent/pipeline.py:286"
+      ],
+      "steps": [
+        {
+          "from": "runner",
+          "to": "store",
+          "kind": "internal",
+          "label": "Dequeue frame; read hash-verified JPEG",
+          "detail": "Duplicate-geometry job instead reuses source polygons with its own depth."
+        },
+        {
+          "from": "store",
+          "to": "runner",
+          "kind": "response",
+          "label": "Saved image + calibrated evidence",
+          "detail": "Receipt integrity establishes bytes, not recognition correctness."
+        },
+        {
+          "from": "runner",
+          "to": "vision",
+          "kind": "internal",
+          "label": "Resolve local OCR / proposal evidence",
+          "detail": "Apply independent text and detector support; optional catalogue lookup precedes cloud reservation."
+        },
+        {
+          "from": "vision",
+          "to": "catalog",
+          "kind": "request",
+          "label": "OPTIONAL GET openlibrary.org/search.json",
+          "detail": "Compatible book clues only: title, author, limit=3, selected metadata fields."
+        },
+        {
+          "from": "catalog",
+          "to": "vision",
+          "kind": "response",
+          "label": "OPTIONAL candidate bibliographic metadata",
+          "detail": "Corroboration only; catalogue ISBN/edition does not become observed evidence."
+        },
+        {
+          "from": "runner",
+          "to": "vision",
+          "kind": "internal",
+          "label": "Quality / novelty / budget / cooldown decision",
+          "detail": "Reserve and persist any cloud attempt before a billable provider request."
+        },
+        {
+          "from": "vision",
+          "to": "ai",
+          "kind": "request",
+          "label": "POST /v1/responses (standard OpenAI base)",
+          "detail": "gpt-6-astra; upright selected JPEG + hints; store:false; strict ProposedScan."
+        },
+        {
+          "from": "ai",
+          "to": "vision",
+          "kind": "response",
+          "label": "Completed parsed output + usage",
+          "detail": "Detections, polygons, visible text, quality issues, guidance; no price/scale authority."
+        },
+        {
+          "from": "vision",
+          "to": "runner",
+          "kind": "response",
+          "label": "Validated scan + routing + quality",
+          "detail": "Restore raw-image coordinates; reject malformed individual polygons."
+        },
+        {
+          "from": "runner",
+          "to": "runner",
+          "kind": "internal",
+          "label": "Under lock: geometry, association and apply_scan",
+          "detail": "Measure sensor-supported faces; match physical records; gate book identity on OCR."
+        },
+        {
+          "from": "runner",
+          "to": "store",
+          "kind": "internal",
+          "label": "Save observation/overlays; revise state",
+          "detail": "Increment revision, persist immutable refs and atomic state; queue eligible prices."
+        },
+        {
+          "from": "runner",
+          "to": "phone",
+          "kind": "event",
+          "label": "inventory {packet} via API WebSocket",
+          "detail": "Full saved snapshot, including usage/cost estimate and unresolved review entries."
+        },
+        {
+          "from": "runner",
+          "to": "phone",
+          "kind": "event",
+          "label": "frame_overlays then recognition_status",
+          "detail": "Overlay geometry; status ready/pending, routing, cost and provisional objects."
+        },
+        {
+          "from": "runner",
+          "to": "phone",
+          "kind": "event",
+          "label": "Optional guidance via API WebSocket",
+          "detail": "User-facing capture guidance, separate from structured voice context."
+        },
+        {
+          "from": "runner",
+          "to": "bridge",
+          "kind": "internal",
+          "label": "offer_context: saved recognition facts",
+          "detail": "Grounded text context for Realtime (F03); no routine JPEG copied to voice."
+        },
+        {
+          "from": "vision",
+          "to": "runner",
+          "kind": "error",
+          "label": "ALT deferred / provider failure / worker failure",
+          "detail": "Retain supported evidence; unknown usage is null; emit pending or unavailable status."
+        }
+      ]
+    },
+    {
+      "id": "F06",
+      "title": "Measure objects and update RoomPlan geometry",
+      "subtitle": "Object face measurements and room/furniture geometry use calibrated sensor evidence, not guessed model scale.",
+      "participants": [
+        {
+          "id": "phone",
+          "name": "iPhone client",
+          "kind": "phone"
+        },
+        {
+          "id": "api",
+          "name": "FastAPI edge",
+          "kind": "internal"
+        },
+        {
+          "id": "runner",
+          "name": "SweepRunner",
+          "kind": "internal"
+        },
+        {
+          "id": "geometry",
+          "name": "Geometry + tracking",
+          "kind": "internal"
+        },
+        {
+          "id": "store",
+          "name": "EvidenceStore / disk",
+          "kind": "store"
+        },
+        {
+          "id": "bridge",
+          "name": "Realtime bridge",
+          "kind": "internal"
+        }
+      ],
+      "note": "Live RoomPlan intentionally omits floor polygons. Final RoomBuilder geometry is needed for floor area. Camera-only frames keep unsupported measurements unknown. Accurate sensor-derived numbers still need tape/ruler validation.",
+      "sources": [
+        "claim_agent/pipeline.py:369",
+        "claim_agent/geometry.py:30",
+        "ios/LibraryClaim/MeasurementModels.swift:4",
+        "ios/LibraryClaim/RoomGeometry.swift:5",
+        "claim_agent/pipeline.py:711"
+      ],
+      "steps": [
+        {
+          "from": "runner",
+          "to": "geometry",
+          "kind": "internal",
+          "label": "For each scan polygon: measure detection",
+          "detail": "Use original calibration and confident aligned depth; fit local plane/rays."
+        },
+        {
+          "from": "geometry",
+          "to": "runner",
+          "kind": "response",
+          "label": "Dimensions / world support or unknown + reasons",
+          "detail": "Book spine edges or visible object face; no invented full 3-D box."
+        },
+        {
+          "from": "runner",
+          "to": "geometry",
+          "kind": "internal",
+          "label": "Associate physical track and furniture anchor",
+          "detail": "Same session, one-to-one assignment, compatible category/depth/geometry."
+        },
+        {
+          "from": "geometry",
+          "to": "runner",
+          "kind": "response",
+          "label": "Existing physical ID or new/reviewable record",
+          "detail": "Text equality alone never merges physical objects; ambiguity stays explicit."
+        },
+        {
+          "from": "phone",
+          "to": "phone",
+          "kind": "internal",
+          "label": "RoomPlan live update on shared AR session",
+          "detail": "Throttle >=3 s; retain latest snapshot; only one geometry request in flight."
+        },
+        {
+          "from": "phone",
+          "to": "api",
+          "kind": "request",
+          "label": "POST /api/sweeps/{id}/geometry",
+          "detail": "After accepted frame: session ID, walls/openings/objects; live floors:[], capture_complete:false."
+        },
+        {
+          "from": "api",
+          "to": "runner",
+          "kind": "internal",
+          "label": "Validate session and geometry write state",
+          "detail": "Camera mode, absent first frame or mismatched session reject; same bytes are idempotent."
+        },
+        {
+          "from": "runner",
+          "to": "store",
+          "kind": "internal",
+          "label": "Save immutable geometry/room_<id>.json",
+          "detail": "Preserve the input geometry before reconciling measurements."
+        },
+        {
+          "from": "runner",
+          "to": "geometry",
+          "kind": "internal",
+          "label": "measure_room + reconcile furniture",
+          "detail": "Floor/wall polygons, openings, wall height, supported RoomPlan boxes, one-to-one matches."
+        },
+        {
+          "from": "geometry",
+          "to": "runner",
+          "kind": "response",
+          "label": "Room facts / furniture dimensions / review issues",
+          "detail": "Curved or incomplete surfaces and ambiguous links preserve unknowns."
+        },
+        {
+          "from": "runner",
+          "to": "store",
+          "kind": "internal",
+          "label": "Update state; refresh affected price queries",
+          "detail": "Clear obsolete dimensions on revision; stale quotes cannot apply."
+        },
+        {
+          "from": "runner",
+          "to": "phone",
+          "kind": "event",
+          "label": "inventory {packet} via API WebSocket",
+          "detail": "Event update can arrive before the geometry HTTP response."
+        },
+        {
+          "from": "runner",
+          "to": "bridge",
+          "kind": "internal",
+          "label": "offer_context: measurement facts",
+          "detail": "Optional grounded voice cue; this is an internal bridge call, not a phone event."
+        },
+        {
+          "from": "api",
+          "to": "phone",
+          "kind": "response",
+          "label": "200 {saved:true}",
+          "detail": "422 unsupported/session-invalid; 409 changed geometry after capture ended."
+        },
+        {
+          "from": "phone",
+          "to": "api",
+          "kind": "request",
+          "label": "At end, if available: POST final geometry",
+          "detail": "LiDAR RoomBuilder output before /finish; failures become capture issues and geometry may be skipped."
+        }
+      ]
+    },
+    {
+      "id": "F07",
+      "title": "Search, verify and apply a price",
+      "subtitle": "Pricing is a separate in-process queue. Search returns URLs; fetched source offers establish price evidence.",
+      "participants": [
+        {
+          "id": "runner",
+          "name": "SweepRunner",
+          "kind": "internal"
+        },
+        {
+          "id": "prices",
+          "name": "Price workers / cache",
+          "kind": "internal"
+        },
+        {
+          "id": "ai",
+          "name": "OpenAI Responses",
+          "kind": "cloud"
+        },
+        {
+          "id": "retail",
+          "name": "Retailer pages",
+          "kind": "web"
+        },
+        {
+          "id": "fx",
+          "name": "Frankfurter FX",
+          "kind": "web"
+        },
+        {
+          "id": "store",
+          "name": "EvidenceStore / disk",
+          "kind": "store"
+        }
+      ],
+      "note": "Quote-cache hit skips network calls; search-cache hit skips only model search and still fetches/validates retailers. Caches/in-flight sharing are per runner. A quote has a 45 s deadline after semaphore entry. Unknown offers stay outside totals. API USD usage costs are separate from local-currency claim values.",
+      "sources": [
+        "claim_agent/pipeline.py:551",
+        "claim_agent/pipeline.py:620",
+        "claim_agent/pricing.py:350",
+        "claim_agent/openai_provider.py:71",
+        "claim_agent/providers.py:18",
+        "claim_agent/pricing.py:466"
+      ],
+      "steps": [
+        {
+          "from": "runner",
+          "to": "prices",
+          "kind": "internal",
+          "label": "Enqueue eligible record + revision/fingerprint",
+          "detail": "Books: new and used separately; items: new only. No repeat of unchanged attempted job."
+        },
+        {
+          "from": "prices",
+          "to": "runner",
+          "kind": "internal",
+          "label": "Set queued -> searching; save/publish inventory",
+          "detail": "Check eligibility, current revision, paid-pricing setting and provider latch."
+        },
+        {
+          "from": "prices",
+          "to": "prices",
+          "kind": "internal",
+          "label": "Check quote/search cache and shared in-flight task",
+          "detail": "Quote cache skips network; search cache skips model search only. Per-runner caches; raw current query validated."
+        },
+        {
+          "from": "prices",
+          "to": "ai",
+          "kind": "request",
+          "label": "POST /v1/responses with web_search",
+          "detail": "gpt-5.4-mini, country/currency/condition query, required search, one tool call."
+        },
+        {
+          "from": "ai",
+          "to": "prices",
+          "kind": "response",
+          "label": "Completed search citations/sources + usage",
+          "detail": "Up to eight candidate URLs; generated price prose is not accepted."
+        },
+        {
+          "from": "prices",
+          "to": "retail",
+          "kind": "request",
+          "label": "GET discovered public product URLs",
+          "detail": "Fetch candidates concurrently; revalidate redirects/addresses; timeout/size limits."
+        },
+        {
+          "from": "retail",
+          "to": "prices",
+          "kind": "response",
+          "label": "HTML/text containing JSON-LD Product/Book Offer",
+          "detail": "No fixed retailer pricing API; blocked/unstructured sources may give no usable offer."
+        },
+        {
+          "from": "prices",
+          "to": "prices",
+          "kind": "internal",
+          "label": "Validate and rank individual offers",
+          "detail": "Identity, condition, stock, market/currency, material/dimensions and retrieval date."
+        },
+        {
+          "from": "prices",
+          "to": "ai",
+          "kind": "request",
+          "label": "OPTIONAL foreign-market fallback search",
+          "detail": "If local sources fail, search UK/GBP or India/INR; repeat retrieval/validation."
+        },
+        {
+          "from": "prices",
+          "to": "fx",
+          "kind": "request",
+          "label": "OPTIONAL GET /v2/rate/{base}/{quote}",
+          "detail": "Foreign conversion and non-INR appraisal-threshold check; pair cache may satisfy."
+        },
+        {
+          "from": "fx",
+          "to": "prices",
+          "kind": "response",
+          "label": "JSON {base, quote, date, rate}",
+          "detail": "Validate dated positive rate and pair; preserve original amount/currency."
+        },
+        {
+          "from": "prices",
+          "to": "runner",
+          "kind": "response",
+          "label": "QuoteResult with Price and source metadata",
+          "detail": "Or amount:null + explicit unavailable/timeout/access reason."
+        },
+        {
+          "from": "runner",
+          "to": "store",
+          "kind": "internal",
+          "label": "Revalidate revision; persist offer/search/FX refs",
+          "detail": "Reject stale results; update pricing status; no automatic retry after uncertain spend."
+        },
+        {
+          "from": "runner",
+          "to": "runner",
+          "kind": "internal",
+          "label": "apply_quote -> save_publish -> optional bundle refresh",
+          "detail": "Later inventory event and valuation_updated voice context announce current state."
+        }
+      ]
+    },
+    {
+      "id": "F08",
+      "title": "Read inventory and apply corrections",
+      "subtitle": "Browser review pairs with a cookie; native HTTP uses a bearer token. Both can subscribe to the same event route.",
+      "participants": [
+        {
+          "id": "web",
+          "name": "Web review",
+          "kind": "phone"
+        },
+        {
+          "id": "api",
+          "name": "FastAPI edge",
+          "kind": "internal"
+        },
+        {
+          "id": "runner",
+          "name": "SweepRunner",
+          "kind": "internal"
+        },
+        {
+          "id": "store",
+          "name": "EvidenceStore / disk",
+          "kind": "store"
+        },
+        {
+          "id": "bridge",
+          "name": "Realtime bridge",
+          "kind": "internal"
+        }
+      ],
+      "note": "There is no SSE endpoint or durable event cursor. Listener overflow drops oldest events; GET or a new WebSocket snapshot recovers current state. Lazy-loading a saved sweep may resume eligible pricing, but not frame jobs.",
+      "sources": [
+        "claim_agent/static/app.js:28",
+        "claim_agent/server.py:157",
+        "claim_agent/server.py:193",
+        "claim_agent/server.py:378",
+        "claim_agent/pipeline.py:732",
+        "claim_agent/live.py:65"
+      ],
+      "steps": [
+        {
+          "from": "web",
+          "to": "api",
+          "kind": "request",
+          "label": "POST /api/pair {token}",
+          "detail": "Optional browser bootstrap; token supplied from review link fragment, then cleared."
+        },
+        {
+          "from": "api",
+          "to": "web",
+          "kind": "response",
+          "label": "200 {paired:true} + claim_pair cookie",
+          "detail": "HttpOnly, SameSite=Strict; Secure only over HTTPS. Bad token: 401."
+        },
+        {
+          "from": "web",
+          "to": "api",
+          "kind": "request",
+          "label": "GET /api/sweeps; GET /api/sweeps/{id}",
+          "detail": "List latest 20 saved entries; select one for a current snapshot."
+        },
+        {
+          "from": "api",
+          "to": "runner",
+          "kind": "internal",
+          "label": "runner_for(id): lazy load if needed",
+          "detail": "After restart mark interrupted capture partial; resume eligible pricing only."
+        },
+        {
+          "from": "api",
+          "to": "web",
+          "kind": "response",
+          "label": "200 list / 200 ClaimPacket",
+          "detail": "Packet includes sweep, room, books/items, totals, review_queue, revision, metrics."
+        },
+        {
+          "from": "web",
+          "to": "api",
+          "kind": "request",
+          "label": "WS /api/sweeps/{id}/live",
+          "detail": "Browser can stay event-only; it does not send start_voice."
+        },
+        {
+          "from": "api",
+          "to": "web",
+          "kind": "event",
+          "label": "Initial inventory, then updated packets/events",
+          "detail": "Initial snapshot and later inventory use {type:\"inventory\",packet}."
+        },
+        {
+          "from": "web",
+          "to": "api",
+          "kind": "request",
+          "label": "POST /api/sweeps/{id}/corrections",
+          "detail": "JSON: action, ref_id, value. Use an exact saved inventory/shelf ID."
+        },
+        {
+          "from": "api",
+          "to": "runner",
+          "kind": "internal",
+          "label": "correct(): resolve alias, validate and revise",
+          "detail": "Invalidate affected price jobs/values; append owner claim/exclusion audit."
+        },
+        {
+          "from": "runner",
+          "to": "store",
+          "kind": "internal",
+          "label": "Persist revised state and refresh finished bundle",
+          "detail": "Print confirmation may enable pricing; unsupported claims require appraisal."
+        },
+        {
+          "from": "runner",
+          "to": "web",
+          "kind": "event",
+          "label": "inventory {packet} via API",
+          "detail": "State publication occurs before the correction HTTP response."
+        },
+        {
+          "from": "api",
+          "to": "web",
+          "kind": "response",
+          "label": "200 updated ClaimPacket",
+          "detail": "Invalid reference/action: 422; identical correction is not automatically deduplicated."
+        },
+        {
+          "from": "bridge",
+          "to": "runner",
+          "kind": "internal",
+          "label": "ALTERNATIVE voice: correct_inventory tool",
+          "detail": "Validated provider function event invokes the same method, not another HTTP service."
+        },
+        {
+          "from": "runner",
+          "to": "bridge",
+          "kind": "response",
+          "label": "Internal snapshot/result -> function_call_output",
+          "detail": "Tool result is sent back to Realtime by call_id; see F02/F03."
+        }
+      ]
+    },
+    {
+      "id": "F09",
+      "title": "Finish, generate and download claim evidence",
+      "subtitle": "The native client flushes saved evidence and final geometry before a held /finish request.",
+      "participants": [
+        {
+          "id": "phone",
+          "name": "iPhone client",
+          "kind": "phone"
+        },
+        {
+          "id": "api",
+          "name": "FastAPI edge",
+          "kind": "internal"
+        },
+        {
+          "id": "runner",
+          "name": "SweepRunner",
+          "kind": "internal"
+        },
+        {
+          "id": "store",
+          "name": "EvidenceStore / disk",
+          "kind": "store"
+        }
+      ],
+      "note": "Finish returns 200 only after drain/deadline handling; it is not a 202 job receipt. Partial can still be a successful HTTP outcome. Exports may also be requested before finish. Comparison is not automatically inside packet.zip.",
+      "sources": [
+        "ios/LibraryClaim/CaptureController.swift:487",
+        "ios/LibraryClaim/CaptureController.swift:519",
+        "claim_agent/pipeline.py:776",
+        "claim_agent/packet.py:150",
+        "claim_agent/server.py:397"
+      ],
+      "steps": [
+        {
+          "from": "phone",
+          "to": "phone",
+          "kind": "internal",
+          "label": "Stop sampling; LiDAR RoomBuilder if supported",
+          "detail": "Await encoder; save final geometry if available; drain pending uploads for up to 60 s."
+        },
+        {
+          "from": "phone",
+          "to": "phone",
+          "kind": "error",
+          "label": "ALT pending evidence remains: Awaiting uploads",
+          "detail": "Expose Retry finish; do not call server finish while pending files remain."
+        },
+        {
+          "from": "phone",
+          "to": "api",
+          "kind": "request",
+          "label": "If available: POST /geometry after live drain",
+          "detail": "Send final LiDAR geometry when present; camera or failed export skips it with capture issues."
+        },
+        {
+          "from": "api",
+          "to": "phone",
+          "kind": "response",
+          "label": "200 {saved:true}",
+          "detail": "Require success when geometry exists; otherwise finalize with recorded geometry-failure issues."
+        },
+        {
+          "from": "phone",
+          "to": "api",
+          "kind": "request",
+          "label": "POST /api/sweeps/{id}/finish",
+          "detail": "duration_s and capture_issues; native request timeout 300 s."
+        },
+        {
+          "from": "api",
+          "to": "runner",
+          "kind": "internal",
+          "label": "finish_lock; transition to processing",
+          "detail": "Already ready/partial returns snapshot. Otherwise save/publish processing state."
+        },
+        {
+          "from": "runner",
+          "to": "runner",
+          "kind": "internal",
+          "label": "Await frame queue, then price queue",
+          "detail": "Workers run concurrently; bounded overall finish_timeout, source default 240 s."
+        },
+        {
+          "from": "runner",
+          "to": "runner",
+          "kind": "error",
+          "label": "ALT deadline: cancel remaining workers",
+          "detail": "Mark unfinished pricing unknown/reviewable; continue to partial packet."
+        },
+        {
+          "from": "runner",
+          "to": "store",
+          "kind": "internal",
+          "label": "Compute Decimal totals; save final state",
+          "detail": "Preserve ready/partial state, review queue and immutable evidence refs."
+        },
+        {
+          "from": "runner",
+          "to": "phone",
+          "kind": "event",
+          "label": "inventory {packet} via API",
+          "detail": "Final snapshot is published before bundle generation; it does not prove the ZIP exists."
+        },
+        {
+          "from": "runner",
+          "to": "store",
+          "kind": "internal",
+          "label": "Build bundle; update timing; save/rewrite bundle",
+          "detail": "Generate JSON, HTML and ZIP; then offer capture-ended context to internal voice bridge."
+        },
+        {
+          "from": "runner",
+          "to": "phone",
+          "kind": "event",
+          "label": "packet_ready {packet} via API",
+          "detail": "Emitted after bundle generation; final HTTP response follows."
+        },
+        {
+          "from": "api",
+          "to": "phone",
+          "kind": "response",
+          "label": "200 final/partial ClaimPacket",
+          "detail": "Held HTTP response completes; this does not prove all acceptance bars passed."
+        },
+        {
+          "from": "phone",
+          "to": "api",
+          "kind": "request",
+          "label": "GET /api/sweeps/{id}/packet.zip",
+          "detail": "Optional alternatives: claim_packet.json, report.html, evidence path."
+        },
+        {
+          "from": "api",
+          "to": "store",
+          "kind": "internal",
+          "label": "Rebuild bundle under lock; verify evidence hashes",
+          "detail": "ZIP includes packet/report/manifest and registered evidence, not raw state.json."
+        },
+        {
+          "from": "api",
+          "to": "phone",
+          "kind": "response",
+          "label": "200 application/zip; filename claim_{id}.zip",
+          "detail": "Native saves local download; optional comparison starts afterwards (F10)."
+        }
+      ]
+    },
+    {
+      "id": "F10",
+      "title": "Compare camera-only with LiDAR",
+      "subtitle": "Optional same-frame depth ablation: one held POST, persisted status reads, and a separate replay runner.",
+      "participants": [
+        {
+          "id": "phone",
+          "name": "iPhone client",
+          "kind": "phone"
+        },
+        {
+          "id": "api",
+          "name": "FastAPI edge",
+          "kind": "internal"
+        },
+        {
+          "id": "compare",
+          "name": "Comparison workflow",
+          "kind": "internal"
+        },
+        {
+          "id": "store",
+          "name": "EvidenceStore / disk",
+          "kind": "store"
+        },
+        {
+          "id": "replay",
+          "name": "Isolated replay runner",
+          "kind": "internal"
+        },
+        {
+          "id": "ai",
+          "name": "OpenAI Responses",
+          "kind": "cloud"
+        }
+      ],
+      "note": "This reuses JPEGs and AR poses, not source depth/geometry/identity/prices. Poses may have benefited from LiDAR. A complete workflow can contain partial/failed analysis; it is not an accuracy or sensor-speed benchmark.",
+      "sources": [
+        "claim_agent/comparison.py:107",
+        "claim_agent/comparison.py:115",
+        "claim_agent/comparison.py:152",
+        "ios/LibraryClaim/BackendClient.swift:119"
+      ],
+      "steps": [
+        {
+          "from": "phone",
+          "to": "api",
+          "kind": "request",
+          "label": "POST /api/sweeps/{id}/camera-comparison",
+          "detail": "JSON {}; native waits up to 300 s. Must follow eligible ready/partial LiDAR sweep."
+        },
+        {
+          "from": "api",
+          "to": "compare",
+          "kind": "internal",
+          "label": "Acquire filesystem lock; inspect previous report",
+          "detail": "Existing completed/failed report returns without another replay."
+        },
+        {
+          "from": "compare",
+          "to": "store",
+          "kind": "internal",
+          "label": "Freeze LiDAR packet; persist running status",
+          "detail": "Validate model/provider continuity, evidence and total active capacity."
+        },
+        {
+          "from": "compare",
+          "to": "replay",
+          "kind": "internal",
+          "label": "Create fresh camera runner / provider / state",
+          "detail": "Same locale/model and original RGB+calibration/pose; zero depth dimensions."
+        },
+        {
+          "from": "store",
+          "to": "replay",
+          "kind": "response",
+          "label": "Original hash-verified JPEGs and calibration",
+          "detail": "Do not inherit source tracks, physical IDs, corrections, geometry or prices."
+        },
+        {
+          "from": "replay",
+          "to": "ai",
+          "kind": "request",
+          "label": "Gated vision/search requests (F05/F07)",
+          "detail": "Independent call budget and costs; process each frame, then finish replay."
+        },
+        {
+          "from": "ai",
+          "to": "replay",
+          "kind": "response",
+          "label": "Independent observations / sources / usage",
+          "detail": "Unknown/error outcomes remain distinct from zero detected objects."
+        },
+        {
+          "from": "replay",
+          "to": "compare",
+          "kind": "response",
+          "label": "Camera packet and processing evidence",
+          "detail": "Counts, measurement coverage, review reasons, timing and usage."
+        },
+        {
+          "from": "compare",
+          "to": "store",
+          "kind": "internal",
+          "label": "Persist camera packet and comparison report",
+          "detail": "status complete or failed; analysis_status separately completed/partial/failed/interrupted."
+        },
+        {
+          "from": "compare",
+          "to": "phone",
+          "kind": "event",
+          "label": "comparison_ready {report} via API",
+          "detail": "Completed/handled failure emits event. Cancellation may persist failure without event; recover through GET."
+        },
+        {
+          "from": "api",
+          "to": "phone",
+          "kind": "response",
+          "label": "200 saved report after processing",
+          "detail": "No 202 response. 409 already_running/source_unavailable/capacity before replay."
+        },
+        {
+          "from": "phone",
+          "to": "api",
+          "kind": "request",
+          "label": "OPTIONAL GET /api/sweeps/{id}/camera-comparison",
+          "detail": "Read persisted status; 404 if absent. No replay starts from this GET."
+        },
+        {
+          "from": "api",
+          "to": "phone",
+          "kind": "response",
+          "label": "200 persisted running/complete/failed report",
+          "detail": "Already-running native recovery does one GET; no automatic polling loop."
+        }
+      ]
+    },
+    {
+      "id": "F11",
+      "title": "Reprice the same books in a second market",
+      "subtitle": "Two entry points share one method: voice emits a result event; direct HTTP returns the result without that event.",
+      "participants": [
+        {
+          "id": "phone",
+          "name": "iPhone client",
+          "kind": "phone"
+        },
+        {
+          "id": "api",
+          "name": "FastAPI edge",
+          "kind": "internal"
+        },
+        {
+          "id": "bridge",
+          "name": "Realtime bridge",
+          "kind": "internal"
+        },
+        {
+          "id": "runner",
+          "name": "SweepRunner",
+          "kind": "internal"
+        },
+        {
+          "id": "prices",
+          "name": "PriceProvider / cache",
+          "kind": "internal"
+        },
+        {
+          "id": "store",
+          "name": "EvidenceStore / disk",
+          "kind": "store"
+        }
+      ],
+      "note": "Copies the first ten eligible identified books, or fewer with coverage. Original IDs/frame refs stay the same; primary market prices are unchanged. Direct HTTP validates Locale syntax; voice also validates supported market pairing.",
+      "sources": [
+        "claim_agent/server.py:394",
+        "claim_agent/live.py:73",
+        "claim_agent/pipeline.py:858",
+        "ios/LibraryClaim/CaptureController.swift:698"
+      ],
+      "steps": [
+        {
+          "from": "phone",
+          "to": "bridge",
+          "kind": "event",
+          "label": "PATH A: spoken request through Realtime (F03)",
+          "detail": "Validated compare_market function arguments: country, currency."
+        },
+        {
+          "from": "bridge",
+          "to": "runner",
+          "kind": "internal",
+          "label": "compare_market -> second_locale(locale)",
+          "detail": "Validate supported voice country/currency pair; no separate HTTP round trip."
+        },
+        {
+          "from": "phone",
+          "to": "api",
+          "kind": "request",
+          "label": "PATH B: POST /api/sweeps/{id}/second-locale",
+          "detail": "JSON: country, currency; request stays open until results are ready."
+        },
+        {
+          "from": "api",
+          "to": "runner",
+          "kind": "internal",
+          "label": "second_locale(locale)",
+          "detail": "This is an alternative entry to step 2, not a second call after voice."
+        },
+        {
+          "from": "runner",
+          "to": "runner",
+          "kind": "internal",
+          "label": "Copy first ten identified, nonexcluded books",
+          "detail": "Freeze same physical IDs and frame refs; report required=10 and actual coverage."
+        },
+        {
+          "from": "runner",
+          "to": "prices",
+          "kind": "internal",
+          "label": "For each selected book: quote new, then used",
+          "detail": "Direct sequential quote calls with F07 validation; bypasses pricing-job queue and its resume/dedup rules."
+        },
+        {
+          "from": "prices",
+          "to": "runner",
+          "kind": "response",
+          "label": "Prices with sources or explicit unknowns",
+          "detail": "Do not overwrite primary-market prices or generate missing identities."
+        },
+        {
+          "from": "runner",
+          "to": "store",
+          "kind": "internal",
+          "label": "Save source evidence and second-locale observation",
+          "detail": "Persist state; no inventory revision/event or bundle regeneration here."
+        },
+        {
+          "from": "runner",
+          "to": "bridge",
+          "kind": "response",
+          "label": "PATH A result: same_physical_ids:true + books",
+          "detail": "Bridge receives result after awaited pricing."
+        },
+        {
+          "from": "bridge",
+          "to": "phone",
+          "kind": "event",
+          "label": "PATH A only: second_locale {result}",
+          "detail": "Also return function output to Realtime so spoken response can use result."
+        },
+        {
+          "from": "api",
+          "to": "phone",
+          "kind": "response",
+          "label": "PATH B only: 200 second-locale result",
+          "detail": "No second_locale WebSocket event is emitted by this HTTP route."
+        }
+      ]
+    },
+    {
+      "id": "F12",
+      "title": "Reconnect, recover and account for usage",
+      "subtitle": "Recovery is bounded and explicit. Files are durable; provider sessions and most processing queues are not.",
+      "participants": [
+        {
+          "id": "phone",
+          "name": "iPhone client",
+          "kind": "phone"
+        },
+        {
+          "id": "api",
+          "name": "FastAPI edge",
+          "kind": "internal"
+        },
+        {
+          "id": "bridge",
+          "name": "Realtime bridge",
+          "kind": "internal"
+        },
+        {
+          "id": "rt",
+          "name": "OpenAI Realtime",
+          "kind": "cloud"
+        },
+        {
+          "id": "runner",
+          "name": "SweepRunner",
+          "kind": "internal"
+        },
+        {
+          "id": "store",
+          "name": "EvidenceStore / disk",
+          "kind": "store"
+        }
+      ],
+      "note": "No blanket automatic paid retry. Persisted searching price jobs become interrupted/unknown-cost; eligible queued prices may resume. Server restart does not replay saved frame jobs. Costs can remain partial even when a packet exists.",
+      "sources": [
+        "claim_agent/server.py:157",
+        "claim_agent/pipeline.py:61",
+        "claim_agent/openai_live.py:238",
+        "claim_agent/openai_live.py:694",
+        "claim_agent/costing.py:57",
+        "ios/LibraryClaim/CaptureController.swift:742"
+      ],
+      "steps": [
+        {
+          "from": "rt",
+          "to": "bridge",
+          "kind": "event",
+          "label": "response.done with response.usage; transcription usage",
+          "detail": "Record actual provider usage once per model/response ID."
+        },
+        {
+          "from": "bridge",
+          "to": "runner",
+          "kind": "internal",
+          "label": "persist_usage -> save_publish",
+          "detail": "Sweep path persists metrics; onboarding usage stays in memory until copied at handoff. Unknown usage:null."
+        },
+        {
+          "from": "runner",
+          "to": "store",
+          "kind": "internal",
+          "label": "Atomic state + cost ledger snapshot",
+          "detail": "Compute known estimated subtotal and uncosted count; unknown is not zero."
+        },
+        {
+          "from": "runner",
+          "to": "phone",
+          "kind": "event",
+          "label": "inventory {packet} via API",
+          "detail": "Metrics are nested inside packet; no dedicated usage event."
+        },
+        {
+          "from": "rt",
+          "to": "bridge",
+          "kind": "error",
+          "label": "ALT provider access/credit or fatal voice error",
+          "detail": "Selected stale control errors recover; other failures terminate voice bridge."
+        },
+        {
+          "from": "bridge",
+          "to": "phone",
+          "kind": "event",
+          "label": "voice_error; review reason saved",
+          "detail": "Request explicit reconnect/funding action; retain saved camera evidence."
+        },
+        {
+          "from": "phone",
+          "to": "api",
+          "kind": "event",
+          "label": "User reconnect: close old WS, open new WS",
+          "detail": "Repeat health/readiness negotiation in F01; no background paid reconnect loop."
+        },
+        {
+          "from": "api",
+          "to": "phone",
+          "kind": "event",
+          "label": "Current snapshot and newly negotiated voice",
+          "detail": "Unexpired in-memory setup can survive reconnect, not server restart. Prior provider audio buffers do not."
+        },
+        {
+          "from": "phone",
+          "to": "api",
+          "kind": "request",
+          "label": "After server restart: GET saved sweep",
+          "detail": "runner_for loads state; saved capturing/processing changes to partial."
+        },
+        {
+          "from": "api",
+          "to": "store",
+          "kind": "internal",
+          "label": "Load persisted state and evidence",
+          "detail": "No durable frame-task broker; missing capture continuity is reviewable."
+        },
+        {
+          "from": "api",
+          "to": "runner",
+          "kind": "internal",
+          "label": "resume_pricing with identity/spend guards",
+          "detail": "Queued eligible jobs may resume; searching becomes interrupted without replay."
+        },
+        {
+          "from": "api",
+          "to": "phone",
+          "kind": "response",
+          "label": "200 current ClaimPacket with review/unknowns",
+          "detail": "Later price publications use the same event route; no claimed full recovery."
+        }
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/api/health",
+      "result": "200 configuration JSON",
+      "purpose": "F01; unauthenticated; no paid readiness probe"
+    },
+    {
+      "method": "POST",
+      "path": "/api/pair",
+      "result": "200 {paired:true}; cookie",
+      "purpose": "F08 browser-only pairing; 401 for bad token"
+    },
+    {
+      "method": "POST",
+      "path": "/api/onboarding",
+      "result": "200 {id,expires_in_s}; 409 capacity",
+      "purpose": "F01; JSON device/capture_supported/camera_supported"
+    },
+    {
+      "method": "WS",
+      "path": "/api/onboarding/{id}/live",
+      "result": "Accepted + async setup/audio events",
+      "purpose": "F01-F03; 4401/4404 are pre-accept rejection branches"
+    },
+    {
+      "method": "POST",
+      "path": "/api/sweeps",
+      "result": "200 ClaimPacket; 409 invalid handoff",
+      "purpose": "F02; native {device,onboarding_id}; retry reuses saved handoff"
+    },
+    {
+      "method": "GET",
+      "path": "/api/sweeps",
+      "result": "200 summary array, latest 20",
+      "purpose": "F08; reads state files, does not instantiate runners"
+    },
+    {
+      "method": "GET",
+      "path": "/api/sweeps/{id}",
+      "result": "200 current ClaimPacket",
+      "purpose": "F08/F12; lazy load may resume eligible pricing"
+    },
+    {
+      "method": "WS",
+      "path": "/api/sweeps/{id}/live",
+      "result": "Initial inventory; async events",
+      "purpose": "F03/F05/F08; no SSE; voice optional on this socket"
+    },
+    {
+      "method": "POST",
+      "path": "/api/sweeps/{id}/frames",
+      "result": "200 receipt / 429 backpressure",
+      "purpose": "F04; metadata + JPEG/depth/confidence base64; result later via WS"
+    },
+    {
+      "method": "POST",
+      "path": "/api/sweeps/{id}/geometry",
+      "result": "200 {saved:true}",
+      "purpose": "F06; same-session geometry; invalid/session errors 422"
+    },
+    {
+      "method": "POST",
+      "path": "/api/sweeps/{id}/corrections",
+      "result": "200 updated ClaimPacket",
+      "purpose": "F08; {action,ref_id,value}; inventory published before response"
+    },
+    {
+      "method": "POST",
+      "path": "/api/sweeps/{id}/finish",
+      "result": "200 ready/partial ClaimPacket",
+      "purpose": "F09; held request, not 202; duration_s/capture_issues"
+    },
+    {
+      "method": "POST",
+      "path": "/api/sweeps/{id}/second-locale",
+      "result": "200 comparison result",
+      "purpose": "F11; held request; does not itself emit second_locale event"
+    },
+    {
+      "method": "GET",
+      "path": "/api/sweeps/{id}/camera-comparison",
+      "result": "200 persisted report; 404 absent",
+      "purpose": "F10; reads running/complete/failed; does not start replay"
+    },
+    {
+      "method": "POST",
+      "path": "/api/sweeps/{id}/camera-comparison",
+      "result": "200 report; 409 conflict/capacity",
+      "purpose": "F10; held request; reuses saved result without extra replay"
+    },
+    {
+      "method": "GET",
+      "path": "/api/sweeps/{id}/packet.zip",
+      "result": "200 application/zip attachment",
+      "purpose": "F09; rebuild current bundle; not gated on finished state"
+    },
+    {
+      "method": "GET",
+      "path": "/api/sweeps/{id}/claim_packet.json",
+      "result": "200 current ClaimPacket JSON",
+      "purpose": "F09; computed snapshot rather than reading stored file"
+    },
+    {
+      "method": "GET",
+      "path": "/api/sweeps/{id}/report.html",
+      "result": "200 text/html",
+      "purpose": "F09; regenerate bundle then serve readable report"
+    },
+    {
+      "method": "GET",
+      "path": "/api/sweeps/{id}/{kind}/{name}",
+      "result": "200 JPEG or octet-stream",
+      "purpose": "F09; allowlisted path and saved SHA-256 validation"
+    },
+    {
+      "method": "GET/POST",
+      "path": "/api/{onboarding|sweeps}/{id}/local-voice",
+      "result": "Legacy context / tool contract",
+      "purpose": "Inactive native path; do not confuse with OpenAI Realtime"
+    },
+    {
+      "method": "POST",
+      "path": "/api/{onboarding|sweeps}/{id}/local-voice/assistant",
+      "result": "Legacy text assistant contract",
+      "purpose": "Inactive native path; historical provider adapters remain"
+    },
+    {
+      "method": "POST",
+      "path": "/api/{onboarding|sweeps}/{id}/local-voice/{transcribe|speech}",
+      "result": "Legacy speech HTTP contracts",
+      "purpose": "Inactive native path; no active sequential STT/TTS chain"
+    },
+    {
+      "method": "POST",
+      "path": "/api/sweeps/{id}/local-voice/guidance",
+      "result": "Legacy spoken-guidance contract",
+      "purpose": "Inactive native path; current bridge uses Realtime context"
+    },
+    {
+      "method": "WSS",
+      "path": "api.openai.com/v1/realtime?model=...",
+      "result": "session/audio/transcript/tool/usage events",
+      "purpose": "F01-F03; server credential; independent upstream socket"
+    },
+    {
+      "method": "POST",
+      "path": "api.openai.com/v1/responses",
+      "result": "Structured scan or search URLs + usage",
+      "purpose": "F05/F07; standard SDK base, configurable; store:false"
+    },
+    {
+      "method": "GET",
+      "path": "Discovered public retailer product URL",
+      "result": "HTML/text with JSON-LD offers",
+      "purpose": "F07; credential-free retrieval; redirect/address validation"
+    },
+    {
+      "method": "GET",
+      "path": "api.frankfurter.dev/v2/rate/{base}/{quote}",
+      "result": "JSON pair/date/rate",
+      "purpose": "F07; conversion and appraisal threshold; optional/cacheable"
+    },
+    {
+      "method": "GET",
+      "path": "openlibrary.org/search.json",
+      "result": "Candidate bibliographic metadata",
+      "purpose": "F05 compatibility branch; not normal current-phone path"
+    }
+  ]
+}

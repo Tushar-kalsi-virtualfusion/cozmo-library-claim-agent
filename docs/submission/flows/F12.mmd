@@ -1,0 +1,20 @@
+sequenceDiagram
+  autonumber
+  participant phone as iPhone client
+  participant api as FastAPI edge
+  participant bridge as Realtime bridge
+  participant rt as OpenAI Realtime
+  participant runner as SweepRunner
+  participant store as EvidenceStore / disk
+  rt-->>bridge: ASYNC EVENT: response.done with response.usage#59; transcription usage<br/>Record actual provider usage once per model/response ID.
+  bridge->>runner: IN-PROCESS: persist_usage -> save_publish<br/>Sweep path persists metrics#59; onboarding usage stays in memory until copied at handoff. Unknown usage:null.
+  runner->>store: IN-PROCESS: Atomic state + cost ledger snapshot<br/>Compute known estimated subtotal and uncosted count#59; unknown is not zero.
+  runner-->>phone: ASYNC EVENT: inventory {packet} via API<br/>Metrics are nested inside packet#59; no dedicated usage event.
+  rt-->>bridge: ALTERNATIVE / ERROR: ALT provider access/credit or fatal voice error<br/>Selected stale control errors recover#59; other failures terminate voice bridge.
+  bridge-->>phone: ASYNC EVENT: voice_error#59; review reason saved<br/>Request explicit reconnect/funding action#59; retain saved camera evidence.
+  phone-->>api: ASYNC EVENT: User reconnect: close old WS, open new WS<br/>Repeat health/readiness negotiation in F01#59; no background paid reconnect loop.
+  api-->>phone: ASYNC EVENT: Current snapshot and newly negotiated voice<br/>Unexpired in-memory setup can survive reconnect, not server restart. Prior provider audio buffers do not.
+  phone->>api: REQUEST: After server restart: GET saved sweep<br/>runner_for loads state#59; saved capturing/processing changes to partial.
+  api->>store: IN-PROCESS: Load persisted state and evidence<br/>No durable frame-task broker#59; missing capture continuity is reviewable.
+  api->>runner: IN-PROCESS: resume_pricing with identity/spend guards<br/>Queued eligible jobs may resume#59; searching becomes interrupted without replay.
+  api-->>phone: RESPONSE: 200 current ClaimPacket with review/unknowns<br/>Later price publications use the same event route#59; no claimed full recovery.

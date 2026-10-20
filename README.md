@@ -8,7 +8,7 @@ A native iPhone camera/LiDAR and live-voice client with a local Python service. 
 
 Illustrated overview; the phone screen is conceptual. See the [detailed technical diagram](docs/submission/assets/hybrid-architecture.svg) and [visual overview notes](docs/submission/visual-overview.md).
 
-The iPhone performs provisional object detection, OCR, capture selection and AR/LiDAR acquisition. The server coordinates independent voice, recognition, measurement and pricing work, maintains physical identities, and builds the evidence-backed inventory. Continuous video remains on the phone; selected still frames and calibrated depth are uploaded. See the [one-page architecture](output/pdf/architecture-note.pdf), [full technical report](output/pdf/technical-report.pdf), and [editable diagrams](docs/submission/architecture.mmd).
+The iPhone performs provisional object detection, OCR, capture selection and AR/LiDAR acquisition. The server coordinates independent voice, recognition, measurement and pricing work, maintains physical identities, and builds the evidence-backed inventory. Continuous video remains on the phone; selected still frames and calibrated depth are uploaded. See the [one-page architecture](output/pdf/architecture-note.pdf), [full technical report](output/pdf/technical-report.pdf), and [request/response flow guide](docs/submission/service-flows.md).
 
 | Deliverable | Location | Evidence status |
 |---|---|---|
@@ -17,6 +17,7 @@ The iPhone performs provisional object detection, OCR, capture selection and AR/
 | Claim packet and report | [JSON](submission/evidence/current/claim_packet.json), [HTML](submission/evidence/current/report.html), [evidence manifest](submission/evidence/current/manifest.json) | Partial saved sweep; 3 book records and 76 item records, not a ground-truth count |
 | Ground truth and results | [Workbook](submission/ground-truth-and-results.xlsx), [results and limitations](docs/submission/results.md) | System observations populated; independent physical truth is missing |
 | Architecture | [One-page PDF](output/pdf/architecture-note.pdf), [detailed PDF](output/pdf/technical-report.pdf) | As-built hybrid architecture and coordination |
+| Service request/response flows | [Flow guide](docs/submission/service-flows.md), [flow atlas PDF](output/pdf/service-flow-diagrams.pdf) | 12 code-traced sequences, payloads, responses, events and failure paths |
 | Failure log | [One-page PDF](output/pdf/failure-log.pdf), [source](docs/submission/failure-log.md) | Root causes, fixes, partial costs and stage latency |
 
 Read [submission status](docs/submission/submission-status.md) before evaluating. This is a partial assessment submission: it does not establish the required 60-book/two-shelf coverage or accuracy pass bars. At packaging time, further pricing was blocked by `credit_balance_exhausted`. The repository is public at the owner's request; the brief requested private sharing. No API keys, pairing configuration, or raw conversation transcripts are included in the submission evidence.

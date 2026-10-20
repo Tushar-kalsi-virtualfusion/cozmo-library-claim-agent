@@ -1,3 +1,4 @@
 *.mlmodel binary
 *.bin binary
 *.patch -whitespace
+*.pdf binary

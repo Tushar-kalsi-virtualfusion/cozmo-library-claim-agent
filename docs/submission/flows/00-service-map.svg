@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1190.5511811023623" height="841.8897637795277" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1190 841" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1190.5511811023623" height="841.8897637795277"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-841)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1190.5511811023623" height="841.8897637795277" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="38" y="813.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1627) scale(1,-1)">LIBRARY CLAIM / SERVICE FLOWS</text>
+			<text x="38" y="782.8897637795277" style="font-family: Helvetica-Bold; font-size: 24px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1565) scale(1,-1)">Request / response architecture</text>
+			<text x="38" y="761.8897637795277" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1523) scale(1,-1)">One native client, one FastAPI process, external model and source APIs. Internal modules are not separate deployed microservices.</text>
+			<text x="38" y="20.0" style="font-family: Helvetica; font-size: 8.5px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,40) scale(1,-1)">Trace atlas | Implementation audit, not a live-provider or physical-accuracy test | 20 October 2026</text>
+			<rect x="40" y="510" width="235" height="188" rx="9" ry="9" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,94%,92%); fill-rule: evenodd;"/>
+			<text x="53" y="674.0" style="font-family: Helvetica-Bold; font-size: 13px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1348) scale(1,-1)">iPhone / web review</text>
+			<text x="53" y="646.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1292) scale(1,-1)">HTTP JSON: setup / frames / geometry</text>
+			<text x="53" y="620.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1240) scale(1,-1)">WS: events + native audio on one socket</text>
+			<text x="53" y="594.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1188) scale(1,-1)">On-phone Core ML + Vision OCR</text>
+			<text x="53" y="568.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1136) scale(1,-1)">Durable selected-evidence outbox</text>
+			<rect x="320" y="510" width="235" height="188" rx="9" ry="9" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="333" y="674.0" style="font-family: Helvetica-Bold; font-size: 13px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1348) scale(1,-1)">FastAPI + live gateway</text>
+			<text x="333" y="646.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1292) scale(1,-1)">Bearer token or paired cookie</text>
+			<text x="333" y="620.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1240) scale(1,-1)">HTTP admission / validation</text>
+			<text x="333" y="594.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1188) scale(1,-1)">Event sockets + voice ownership</text>
+			<text x="333" y="568.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1136) scale(1,-1)">OpenAI Realtime bridge</text>
+			<rect x="600" y="510" width="250" height="188" rx="9" ry="9" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="613" y="674.0" style="font-family: Helvetica-Bold; font-size: 13px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1348) scale(1,-1)">SweepRunner + adapters</text>
+			<text x="613" y="646.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1292) scale(1,-1)">In-process frame / price workers</text>
+			<text x="613" y="620.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1240) scale(1,-1)">Identity, geometry and revisions</text>
+			<text x="613" y="594.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1188) scale(1,-1)">Deterministic packets + usage</text>
+			<text x="613" y="568.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1136) scale(1,-1)">Bounded provider calls</text>
+			<rect x="900" y="510" width="250" height="188" rx="9" ry="9" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,95%,95%); fill-rule: evenodd;"/>
+			<text x="913" y="674.0" style="font-family: Helvetica-Bold; font-size: 13px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1348) scale(1,-1)">EvidenceStore / filesystem</text>
+			<text x="913" y="646.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1292) scale(1,-1)">Immutable RGB + depth + metadata</text>
+			<text x="913" y="620.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1240) scale(1,-1)">Observations + price source refs</text>
+			<text x="913" y="594.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1188) scale(1,-1)">Saved inventory + usage ledger</text>
+			<text x="913" y="568.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1136) scale(1,-1)">Claim JSON / HTML / ZIP</text>
+			<rect x="320" y="320" width="235" height="108" rx="9" ry="9" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,91%,98%); fill-rule: evenodd;"/>
+			<text x="333" y="404.0" style="font-family: Helvetica-Bold; font-size: 13px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,808) scale(1,-1)">OpenAI Realtime</text>
+			<text x="333" y="376.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,752) scale(1,-1)">WSS: PCM + tools / audio + events</text>
+			<text x="333" y="350.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,700) scale(1,-1)">Provider socket owned by gateway</text>
+			<rect x="600" y="320" width="250" height="108" rx="9" ry="9" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,91%,98%); fill-rule: evenodd;"/>
+			<text x="613" y="404.0" style="font-family: Helvetica-Bold; font-size: 13px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,808) scale(1,-1)">OpenAI Responses</text>
+			<text x="613" y="376.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,752) scale(1,-1)">HTTPS: image / web_search requests</text>
+			<text x="613" y="350.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,700) scale(1,-1)">Observation JSON / source URLs</text>
+			<rect x="900" y="320" width="250" height="108" rx="9" ry="9" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(98%,94%,87%); fill-rule: evenodd;"/>
+			<text x="913" y="404.0" style="font-family: Helvetica-Bold; font-size: 13px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,808) scale(1,-1)">Retailers / catalogue / FX</text>
+			<text x="913" y="376.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,752) scale(1,-1)">HTTPS GET: product pages / rates</text>
+			<text x="913" y="350.0" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,700) scale(1,-1)">Offers / bibliographic facts / FX</text>
+			<path d="M 275,609 L 320,609 Z" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 2;"/>
+			<polygon points="320 609, 314 612, 314 606" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(7%,46%,37%); fill-rule: evenodd;"/>
+			<text x="255" y="716.0" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,1432) scale(1,-1)">HTTP / WS</text>
+			<path d="M 555,609 L 600,609 Z" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 2;"/>
+			<polygon points="600 609, 594 612, 594 606" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(7%,46%,37%); fill-rule: evenodd;"/>
+			<text x="543" y="716.0" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,1432) scale(1,-1)">in-process</text>
+			<path d="M 850,609 L 900,609 Z" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 2;"/>
+			<polygon points="900 609, 894 612, 894 606" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(7%,46%,37%); fill-rule: evenodd;"/>
+			<text x="836" y="716.0" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,1432) scale(1,-1)">read / persist</text>
+			<path d="M 438,510 L 438,428 Z" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 2;"/>
+			<polygon points="438 428, 435 434, 441 434" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(7%,46%,37%); fill-rule: evenodd;"/>
+			<text x="329" y="465.0" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,930) scale(1,-1)">stream + return events</text>
+			<path d="M 725,510 L 725,428 Z" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 2;"/>
+			<polygon points="725 428, 722 434, 728 434" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(7%,46%,37%); fill-rule: evenodd;"/>
+			<text x="610" y="465.0" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,930) scale(1,-1)">vision / search + result</text>
+			<path d="M 830,510 L 830,482 Z" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 2;"/>
+			<path d="M 830,482 L 1025,482 Z" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 2;"/>
+			<path d="M 1025,482 L 1025,428 Z" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 2;"/>
+			<polygon points="1025 428, 1022 434, 1028 434" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(7%,46%,37%); fill-rule: evenodd;"/>
+			<text x="890" y="492.0" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,984) scale(1,-1)">source GET + result</text>
+			<text x="40" y="296.0" style="font-family: Helvetica; font-size: 10px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,592) scale(1,-1)">Routes show the caller. Reverse responses/events use the same connection; the numbered sequences below show each direction separately.</text>
+			<text x="40" y="270.0" style="font-family: Helvetica-Bold; font-size: 17px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,540) scale(1,-1)">Detailed sequence index</text>
+			<text x="40" y="242.0" style="font-family: Helvetica-Bold; font-size: 11.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,484) scale(1,-1)">F01 Open a session and connect voice</text>
+			<text x="40" y="215.0" style="font-family: Helvetica-Bold; font-size: 11.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,430) scale(1,-1)">F02 Spoken setup, readiness and capture handoff</text>
+			<text x="40" y="188.0" style="font-family: Helvetica-Bold; font-size: 11.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,376) scale(1,-1)">F03 Stream audio, acknowledge playback and interrupt</text>
+			<text x="40" y="161.0" style="font-family: Helvetica-Bold; font-size: 11.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,322) scale(1,-1)">F04 Select, retain and upload camera evidence</text>
+			<text x="40" y="134.0" style="font-family: Helvetica-Bold; font-size: 11.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,268) scale(1,-1)">F05 Recognize a frame and publish inventory</text>
+			<text x="40" y="107.0" style="font-family: Helvetica-Bold; font-size: 11.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,214) scale(1,-1)">F06 Measure objects and update RoomPlan geometry</text>
+			<text x="605" y="242.0" style="font-family: Helvetica-Bold; font-size: 11.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,484) scale(1,-1)">F07 Search, verify and apply a price</text>
+			<text x="605" y="215.0" style="font-family: Helvetica-Bold; font-size: 11.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,430) scale(1,-1)">F08 Read inventory and apply corrections</text>
+			<text x="605" y="188.0" style="font-family: Helvetica-Bold; font-size: 11.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,376) scale(1,-1)">F09 Finish, generate and download claim evidence</text>
+			<text x="605" y="161.0" style="font-family: Helvetica-Bold; font-size: 11.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,322) scale(1,-1)">F10 Compare camera-only with LiDAR</text>
+			<text x="605" y="134.0" style="font-family: Helvetica-Bold; font-size: 11.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,268) scale(1,-1)">F11 Reprice the same books in a second market</text>
+			<text x="605" y="107.0" style="font-family: Helvetica-Bold; font-size: 11.5px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,214) scale(1,-1)">F12 Reconnect, recover and account for usage</text>
+			<text x="40" y="53.0" style="font-family: Helvetica; font-size: 10px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,106) scale(1,-1)">Green solid: network request | Blue dashed: network/result response | Purple dotted: asynchronous event | Grey solid: internal call</text>
+		</g>
+	</g>
+</svg>

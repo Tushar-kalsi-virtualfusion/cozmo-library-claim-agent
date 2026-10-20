@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1190.5511811023623" height="841.8897637795277" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1190 841" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1190.5511811023623" height="841.8897637795277"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-841)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1190.5511811023623" height="841.8897637795277" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="38" y="813.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1627) scale(1,-1)">LIBRARY CLAIM / SERVICE FLOWS</text>
+			<text x="38" y="782.8897637795277" style="font-family: Helvetica-Bold; font-size: 24px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1565) scale(1,-1)">F01 Open a session and connect voice</text>
+			<text x="38" y="761.8897637795277" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1523) scale(1,-1)">HTTP creates setup state; the client WebSocket and provider WebSocket are separate connections.</text>
+			<text x="38" y="20.0" style="font-family: Helvetica; font-size: 8.5px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,40) scale(1,-1)">As implemented 20 October 2026 | Solid: request/call | Dashed: response | Purple: asynchronous event | Grey: in-process</text>
+			<rect x="38" y="647.6897637795277" width="1114.5511811023623" height="36.200000000000045" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="575.2897637795277" width="1114.5511811023623" height="36.200000000000045" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="490.68976377952765" width="1114.5511811023623" height="48.39999999999998" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="418.28976377952773" width="1114.5511811023623" height="36.19999999999999" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="345.8897637795277" width="1114.5511811023623" height="36.19999999999999" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="273.48976377952766" width="1114.5511811023623" height="36.19999999999999" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="201.0897637795277" width="1114.5511811023623" height="36.19999999999999" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="56.400000000000006" y="701.8897637795277" width="118.0" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,94%,92%); fill-rule: evenodd;"/>
+			<text x="84.28" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">iPhone client</text>
+			<path d="M 115.4,696.889764 L 115.4,147.689764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="187.20000000000002" y="701.8897637795277" width="118.00000000000003" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="214.525" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">FastAPI edge</text>
+			<path d="M 246.2,696.889764 L 246.2,147.689764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="318.0" y="701.8897637795277" width="118.0" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="329.49" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">OnboardingSession</text>
+			<path d="M 377,696.889764 L 377,147.689764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="448.80000000000007" y="701.8897637795277" width="118.0" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="470.2900000000001" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">Realtime bridge</text>
+			<path d="M 507.8,696.889764 L 507.8,147.689764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="579.6" y="701.8897637795277" width="118.0" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,91%,98%); fill-rule: evenodd;"/>
+			<text x="598.59" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">OpenAI Realtime</text>
+			<path d="M 638.6,696.889764 L 638.6,147.689764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<text x="764" y="728.8897637795277" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1457) scale(1,-1)">MESSAGE / PAYLOAD / RESULT</text>
+			<text x="764" y="709.8897637795277" style="font-family: Helvetica; font-size: 10px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1419) scale(1,-1)">Read downward; numbers match the arrows.</text>
+			<path d="M 734,744.889764 L 734,147.689764 Z" style="stroke: rgb(78%,83%,82%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 115.4,665.789764 L 246.2,665.789764 Z" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="246.2 665.7898, 239.2 669.2898, 239.2 662.2898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(7%,46%,37%); fill-rule: evenodd;"/>
+			<circle cx="180.8" cy="665.7897637795277" r="10" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="175.79600000000002" y="662.4897637795277" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,1324) scale(1,-1)">01</text>
+			<text x="740" y="669.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,1339) scale(1,-1)">01</text>
+			<text x="764" y="669.8897637795277" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,1339) scale(1,-1)">POST /api/onboarding</text>
+			<text x="764" y="656.8897637795277" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1313) scale(1,-1)">JSON: device, capture_supported (LiDAR), camera_supported.</text>
+			<path d="M 246.2,629.589764 L 377,629.589764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="377 629.5898, 370 633.0898, 370 626.0898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,48%,50%); fill-rule: evenodd;"/>
+			<circle cx="311.6" cy="629.5897637795276" r="10" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="306.596" y="626.2897637795277" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1252) scale(1,-1)">02</text>
+			<text x="740" y="633.6897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1267) scale(1,-1)">02</text>
+			<text x="764" y="633.6897637795277" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1267) scale(1,-1)">Create bounded in-memory setup session</text>
+			<text x="764" y="620.6897637795277" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1241) scale(1,-1)">Expire/consume old sessions; at most 8 live setup sessions; TTL 600 s.</text>
+			<path d="M 246.2,593.389764 L 115.4,593.389764 Z" style="stroke: rgb(13%,42%,60%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 5, 3;"/>
+			<polygon points="115.4 593.3898, 122.4 596.8898, 122.4 589.8898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,42%,60%); fill-rule: evenodd;"/>
+			<circle cx="180.8" cy="593.3897637795276" r="10" style="stroke: rgb(13%,42%,60%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="175.79600000000002" y="590.0897637795276" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,1180) scale(1,-1)">03</text>
+			<text x="740" y="597.4897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,1194) scale(1,-1)">03</text>
+			<text x="764" y="597.4897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,1194) scale(1,-1)">200 {id, expires_in_s: 600}</text>
+			<text x="764" y="584.4897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1168) scale(1,-1)">Alternative: 409 conversation limit; common auth/schema errors apply.</text>
+			<path d="M 115.4,557.189764 L 246.2,557.189764 Z" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="246.2 557.1898, 239.2 560.6898, 239.2 553.6898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(7%,46%,37%); fill-rule: evenodd;"/>
+			<circle cx="180.8" cy="557.1897637795275" r="10" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="175.79600000000002" y="553.8897637795276" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,1107) scale(1,-1)">04</text>
+			<text x="740" y="561.2897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,1122) scale(1,-1)">04</text>
+			<text x="764" y="561.2897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,1122) scale(1,-1)">GET /api/health</text>
+			<text x="764" y="548.2897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1096) scale(1,-1)">Read advertised OpenAI voice transport/readiness; no provider request.</text>
+			<path d="M 246.2,514.889764 L 115.4,514.889764 Z" style="stroke: rgb(13%,42%,60%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 5, 3;"/>
+			<polygon points="115.4 514.8898, 122.4 518.3898, 122.4 511.3898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,42%,60%); fill-rule: evenodd;"/>
+			<circle cx="180.8" cy="514.8897637795275" r="10" style="stroke: rgb(13%,42%,60%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="175.79600000000002" y="511.58976377952746" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,1023) scale(1,-1)">05</text>
+			<text x="740" y="525.0897637795275" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,1050) scale(1,-1)">05</text>
+			<text x="764" y="525.0897637795275" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,1050) scale(1,-1)">200 capability/configuration JSON</text>
+			<text x="764" y="512.0897637795275" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1024) scale(1,-1)">Require voice_transport=realtime, assistant_provider=openai,</text>
+			<text x="764" y="499.8897637795275" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,999) scale(1,-1)">realtime_ready=true.</text>
+			<path d="M 115.4,472.589764 L 246.2,472.589764 Z" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="246.2 472.5898, 239.2 476.0898, 239.2 469.0898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(7%,46%,37%); fill-rule: evenodd;"/>
+			<circle cx="180.8" cy="472.5897637795275" r="10" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="175.79600000000002" y="469.2897637795275" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,938) scale(1,-1)">06</text>
+			<text x="740" y="476.68976377952754" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,953) scale(1,-1)">06</text>
+			<text x="764" y="476.68976377952754" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,953) scale(1,-1)">WS /api/onboarding/{id}/live</text>
+			<text x="764" y="463.68976377952754" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,927) scale(1,-1)">Authenticated WebSocket handshake; startVoice:false in native client.</text>
+			<path d="M 246.2,436.389764 L 115.4,436.389764 Z" style="stroke: rgb(13%,42%,60%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 5, 3;"/>
+			<polygon points="115.4 436.3898, 122.4 439.8898, 122.4 432.8898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,42%,60%); fill-rule: evenodd;"/>
+			<circle cx="180.8" cy="436.3897637795275" r="10" style="stroke: rgb(13%,42%,60%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="175.79600000000002" y="433.0897637795275" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,866) scale(1,-1)">07</text>
+			<text x="740" y="440.48976377952755" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,880) scale(1,-1)">07</text>
+			<text x="764" y="440.48976377952755" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,880) scale(1,-1)">WebSocket accepted; listener attached</text>
+			<text x="764" y="427.48976377952755" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,854) scale(1,-1)">Independent event sender; stored setup events may be replayed.</text>
+			<path d="M 115.4,406.189764 L 150.4,406.189764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<path d="M 150.4,406.189764 L 150.4,394.189764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<path d="M 150.4,394.189764 L 115.4,394.189764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="115.4 394.1898, 121.4 397.1898, 121.4 391.1898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,48%,50%); fill-rule: evenodd;"/>
+			<circle cx="93.4" cy="400.18976377952754" r="10" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="88.396" y="396.8897637795275" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,793) scale(1,-1)">08</text>
+			<text x="740" y="404.28976377952756" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,808) scale(1,-1)">08</text>
+			<text x="764" y="404.28976377952756" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,808) scale(1,-1)">Prepare AVAudioEngine and event tasks</text>
+			<text x="764" y="391.28976377952756" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,782) scale(1,-1)">Settle voice-processing audio graph before asking for paid voice.</text>
+			<path d="M 115.4,363.989764 L 246.2,363.989764 Z" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="246.2 363.9898, 239.2 367.4898, 239.2 360.4898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(46%,31%,64%); fill-rule: evenodd;"/>
+			<circle cx="180.8" cy="363.98976377952755" r="10" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="175.79600000000002" y="360.68976377952754" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,721) scale(1,-1)">09</text>
+			<text x="740" y="368.0897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,736) scale(1,-1)">09</text>
+			<text x="764" y="368.0897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,736) scale(1,-1)">start_voice</text>
+			<text x="764" y="355.0897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,710) scale(1,-1)">JSON control event; await voice_ready or voice_error, not an HTTP reply.</text>
+			<path d="M 246.2,327.789764 L 507.8,327.789764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="507.8 327.7898, 500.8 331.2898, 500.8 324.2898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,48%,50%); fill-rule: evenodd;"/>
+			<circle cx="377.00000000000006" cy="327.78976377952756" r="10" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="371.99600000000004" y="324.48976377952755" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,648) scale(1,-1)">10</text>
+			<text x="740" y="331.8897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,663) scale(1,-1)">10</text>
+			<text x="764" y="331.8897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,663) scale(1,-1)">Select OpenAILiveBridge and claim voice owner</text>
+			<text x="764" y="318.8897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,637) scale(1,-1)">A second voice owner gets voice_error; event socket can remain open.</text>
+			<path d="M 507.8,291.589764 L 638.6,291.589764 Z" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="638.6 291.5898, 631.6 295.0898, 631.6 288.0898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(7%,46%,37%); fill-rule: evenodd;"/>
+			<circle cx="573.2" cy="291.5897637795276" r="10" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="568.196" y="288.28976377952756" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,576) scale(1,-1)">11</text>
+			<text x="740" y="295.6897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,591) scale(1,-1)">11</text>
+			<text x="764" y="295.6897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,591) scale(1,-1)">WSS api.openai.com/v1/realtime?model=...</text>
+			<text x="764" y="282.6897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,565) scale(1,-1)">Server credential; configured gpt-realtime-2.1 in submission configuration.</text>
+			<path d="M 507.8,255.389764 L 638.6,255.389764 Z" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="638.6 255.3898, 631.6 258.8898, 631.6 251.8898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(46%,31%,64%); fill-rule: evenodd;"/>
+			<circle cx="573.2" cy="255.3897637795276" r="10" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="568.196" y="252.0897637795276" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,504) scale(1,-1)">12</text>
+			<text x="740" y="259.4897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,518) scale(1,-1)">12</text>
+			<text x="764" y="259.4897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,518) scale(1,-1)">session.update</text>
+			<text x="764" y="246.4897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,492) scale(1,-1)">24 kHz PCM, Marin, semantic VAD, tools, asynchronous input transcription.</text>
+			<path d="M 638.6,219.189764 L 507.8,219.189764 Z" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="507.8 219.1898, 514.8 222.6898, 514.8 215.6898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(46%,31%,64%); fill-rule: evenodd;"/>
+			<circle cx="573.2" cy="219.18976377952762" r="10" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="568.196" y="215.8897637795276" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,431) scale(1,-1)">13</text>
+			<text x="740" y="223.28976377952762" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,446) scale(1,-1)">13</text>
+			<text x="764" y="223.28976377952762" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,446) scale(1,-1)">session.updated</text>
+			<text x="764" y="210.28976377952762" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,420) scale(1,-1)">Provider acknowledges configuration; wait bounded to 20 s.</text>
+			<path d="M 507.8,176.889764 L 115.4,176.889764 Z" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="115.4 176.8898, 122.4 180.3898, 122.4 173.3898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(46%,31%,64%); fill-rule: evenodd;"/>
+			<circle cx="311.6" cy="176.88976377952764" r="10" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="306.596" y="173.58976377952763" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,347) scale(1,-1)">14</text>
+			<text x="740" y="187.08976377952763" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,374) scale(1,-1)">14</text>
+			<text x="764" y="187.08976377952763" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,374) scale(1,-1)">voice_ready (via FastAPI event sender)</text>
+			<text x="764" y="174.08976377952763" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,348) scale(1,-1)">Server enqueues voice_ready and requests the greeting; native enables</text>
+			<text x="764" y="161.88976377952764" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,323) scale(1,-1)">microphone when voice_ready arrives.</text>
+			<text x="38" y="84" style="font-family: Helvetica; font-size: 10px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,168) scale(1,-1)">BOUNDARY The native app sends a bearer pairing token; it does not call /api/pair. Health reports configuration, not funded access. A voice_ready event, not socket open, enables microphone sending.</text>
+			<text x="38" y="48" style="font-family: Helvetica; font-size: 8.5px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,96) scale(1,-1)">SOURCE claim_agent/server.py:262 | claim_agent/server.py:422 | claim_agent/openai_live.py:633 | ios/LibraryClaim/CaptureController.swift:584</text>
+		</g>
+	</g>
+</svg>

@@ -1,8 +1,9 @@
 """Render the as-built architecture and Markdown submission notes as PDFs.
 
-Optional authoring dependency: reportlab. Outputs do not change app/runtime data.
+Optional authoring dependencies: reportlab and pypdf. Outputs do not change app/runtime data.
 """
 from pathlib import Path
+from io import BytesIO
 import html
 import re
 from urllib.parse import quote
@@ -221,9 +222,23 @@ def footer(c,doc):
     c.drawRightString(A4[0]-38,24,str(doc.page));c.restoreState()
 
 def make_report():
+    from pypdf import PdfReader, PdfWriter
     path=OUT/'technical-report.pdf'
-    doc=SimpleDocTemplate(str(path),pagesize=A4,rightMargin=38,leftMargin=38,topMargin=35,bottomMargin=40,title='Library Claim - Full Technical Report',author='Tushar Kalsi')
+    atlas=OUT/'service-flow-diagrams.pdf'
+    if not atlas.exists():
+        raise FileNotFoundError('Run scripts/build_service_flows.py before building the full report')
+    body=BytesIO()
+    doc=SimpleDocTemplate(body,pagesize=A4,rightMargin=38,leftMargin=38,topMargin=35,bottomMargin=40,title='Library Claim - Full Technical Report',author='Tushar Kalsi')
     doc.build(markdown_flow(ROOT/'docs/submission/technical-report.md',diagram=True),onFirstPage=footer,onLaterPages=footer)
+    body.seek(0)
+    writer=PdfWriter()
+    writer.append(PdfReader(body),import_outline=False)
+    atlas_start=len(writer.pages)
+    writer.append(str(atlas),import_outline=False)
+    writer.add_outline_item('Technical report',0)
+    writer.add_outline_item('Detailed request and response flow atlas',atlas_start)
+    writer.add_metadata({'/Title':'Library Claim - Technical Report and Service Flows','/Author':'Tushar Kalsi'})
+    with path.open('wb') as stream:writer.write(stream)
 
 def make_failure():
     # A one-page note must remain readable; fail visibly if its content overflows.

@@ -1,0 +1,22 @@
+sequenceDiagram
+  autonumber
+  participant runner as SweepRunner
+  participant prices as Price workers / cache
+  participant ai as OpenAI Responses
+  participant retail as Retailer pages
+  participant fx as Frankfurter FX
+  participant store as EvidenceStore / disk
+  runner->>prices: IN-PROCESS: Enqueue eligible record + revision/fingerprint<br/>Books: new and used separately#59; items: new only. No repeat of unchanged attempted job.
+  prices->>runner: IN-PROCESS: Set queued -> searching#59; save/publish inventory<br/>Check eligibility, current revision, paid-pricing setting and provider latch.
+  prices->>prices: IN-PROCESS: Check quote/search cache and shared in-flight task<br/>Quote cache skips network#59; search cache skips model search only. Per-runner caches#59; raw current query validated.
+  prices->>ai: REQUEST: POST /v1/responses with web_search<br/>gpt-5.4-mini, country/currency/condition query, required search, one tool call.
+  ai-->>prices: RESPONSE: Completed search citations/sources + usage<br/>Up to eight candidate URLs#59; generated price prose is not accepted.
+  prices->>retail: REQUEST: GET discovered public product URLs<br/>Fetch candidates concurrently#59; revalidate redirects/addresses#59; timeout/size limits.
+  retail-->>prices: RESPONSE: HTML/text containing JSON-LD Product/Book Offer<br/>No fixed retailer pricing API#59; blocked/unstructured sources may give no usable offer.
+  prices->>prices: IN-PROCESS: Validate and rank individual offers<br/>Identity, condition, stock, market/currency, material/dimensions and retrieval date.
+  prices->>ai: REQUEST: OPTIONAL foreign-market fallback search<br/>If local sources fail, search UK/GBP or India/INR#59; repeat retrieval/validation.
+  prices->>fx: REQUEST: OPTIONAL GET /v2/rate/{base}/{quote}<br/>Foreign conversion and non-INR appraisal-threshold check#59; pair cache may satisfy.
+  fx-->>prices: RESPONSE: JSON {base, quote, date, rate}<br/>Validate dated positive rate and pair#59; preserve original amount/currency.
+  prices-->>runner: RESPONSE: QuoteResult with Price and source metadata<br/>Or amount:null + explicit unavailable/timeout/access reason.
+  runner->>store: IN-PROCESS: Revalidate revision#59; persist offer/search/FX refs<br/>Reject stale results#59; update pricing status#59; no automatic retry after uncertain spend.
+  runner->>runner: IN-PROCESS: apply_quote -> save_publish -> optional bundle refresh<br/>Later inventory event and valuation_updated voice context announce current state.

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1190.5511811023623" height="841.8897637795277" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1190 841" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1190.5511811023623" height="841.8897637795277"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-841)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1190.5511811023623" height="841.8897637795277" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="38" y="813.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1627) scale(1,-1)">LIBRARY CLAIM / SERVICE FLOWS</text>
+			<text x="38" y="782.8897637795277" style="font-family: Helvetica-Bold; font-size: 24px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1565) scale(1,-1)">F12 Reconnect, recover and account for usage</text>
+			<text x="38" y="761.8897637795277" style="font-family: Helvetica; font-size: 10.5px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1523) scale(1,-1)">Recovery is bounded and explicit. Files are durable; provider sessions and most processing queues are not.</text>
+			<text x="38" y="20.0" style="font-family: Helvetica; font-size: 8.5px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,40) scale(1,-1)">As implemented 20 October 2026 | Solid: request/call | Dashed: response | Purple: asynchronous event | Grey: in-process</text>
+			<rect x="38" y="647.6897637795277" width="1114.5511811023623" height="36.200000000000045" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="563.0897637795276" width="1114.5511811023623" height="36.200000000000045" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="490.6897637795277" width="1114.5511811023623" height="36.19999999999999" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="418.28976377952773" width="1114.5511811023623" height="36.19999999999999" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="333.6897637795277" width="1114.5511811023623" height="36.19999999999999" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="38" y="249.08976377952766" width="1114.5511811023623" height="48.400000000000006" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,97%,97%); fill-rule: evenodd;"/>
+			<rect x="54.5" y="701.8897637795277" width="100.0" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,94%,92%); fill-rule: evenodd;"/>
+			<text x="73.38" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">iPhone client</text>
+			<path d="M 104.5,696.889764 L 104.5,207.889764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="163.5" y="701.8897637795277" width="100.0" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="181.825" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">FastAPI edge</text>
+			<path d="M 213.5,696.889764 L 213.5,207.889764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="272.5" y="701.8897637795277" width="100.0" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="284.99" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">Realtime bridge</text>
+			<path d="M 322.5,696.889764 L 322.5,207.889764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="381.5" y="701.8897637795277" width="100.0" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,91%,98%); fill-rule: evenodd;"/>
+			<text x="391.49" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">OpenAI Realtime</text>
+			<path d="M 431.5,696.889764 L 431.5,207.889764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="490.5" y="701.8897637795277" width="100.0" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="507.15999999999997" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">SweepRunner</text>
+			<path d="M 540.5,696.889764 L 540.5,207.889764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<rect x="599.5" y="701.8897637795277" width="100.0" height="43.0" rx="5" ry="5" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(92%,94%,94%); fill-rule: evenodd;"/>
+			<text x="611.985" y="729.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1459) scale(1,-1)">EvidenceStore /</text>
+			<text x="639.495" y="717.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1435) scale(1,-1)">disk</text>
+			<path d="M 649.5,696.889764 L 649.5,207.889764 Z" style="stroke: rgb(73%,78%,77%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 3, 4;"/>
+			<text x="764" y="728.8897637795277" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1457) scale(1,-1)">MESSAGE / PAYLOAD / RESULT</text>
+			<text x="764" y="709.8897637795277" style="font-family: Helvetica; font-size: 10px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,1419) scale(1,-1)">Read downward; numbers match the arrows.</text>
+			<path d="M 734,744.889764 L 734,207.889764 Z" style="stroke: rgb(78%,83%,82%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 431.5,665.789764 L 322.5,665.789764 Z" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="322.5 665.7898, 329.5 669.2898, 329.5 662.2898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(46%,31%,64%); fill-rule: evenodd;"/>
+			<circle cx="377.0" cy="665.7897637795277" r="10" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="371.996" y="662.4897637795277" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,1324) scale(1,-1)">01</text>
+			<text x="740" y="669.8897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,1339) scale(1,-1)">01</text>
+			<text x="764" y="669.8897637795277" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,1339) scale(1,-1)">response.done with response.usage; transcription usage</text>
+			<text x="764" y="656.8897637795277" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1313) scale(1,-1)">Record actual provider usage once per model/response ID.</text>
+			<path d="M 322.5,623.489764 L 540.5,623.489764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="540.5 623.4898, 533.5 626.9898, 533.5 619.9898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,48%,50%); fill-rule: evenodd;"/>
+			<circle cx="431.5" cy="623.4897637795276" r="10" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="426.496" y="620.1897637795277" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1240) scale(1,-1)">02</text>
+			<text x="740" y="633.6897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1267) scale(1,-1)">02</text>
+			<text x="764" y="633.6897637795277" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1267) scale(1,-1)">persist_usage -&gt; save_publish</text>
+			<text x="764" y="620.6897637795277" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1241) scale(1,-1)">Sweep path persists metrics; onboarding usage stays in memory until copied at</text>
+			<text x="764" y="608.4897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1216) scale(1,-1)">handoff. Unknown usage:null.</text>
+			<path d="M 540.5,581.189764 L 649.5,581.189764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="649.5 581.1898, 642.5 584.6898, 642.5 577.6898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,48%,50%); fill-rule: evenodd;"/>
+			<circle cx="595.0" cy="581.1897637795277" r="10" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="589.996" y="577.8897637795277" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1155) scale(1,-1)">03</text>
+			<text x="740" y="585.2897637795277" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1170) scale(1,-1)">03</text>
+			<text x="764" y="585.2897637795277" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,1170) scale(1,-1)">Atomic state + cost ledger snapshot</text>
+			<text x="764" y="572.2897637795277" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1144) scale(1,-1)">Compute known estimated subtotal and uncosted count; unknown is not zero.</text>
+			<path d="M 540.5,544.989764 L 104.5,544.989764 Z" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="104.5 544.9898, 111.5 548.4898, 111.5 541.4898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(46%,31%,64%); fill-rule: evenodd;"/>
+			<circle cx="322.5" cy="544.9897637795276" r="10" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="317.496" y="541.6897637795277" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,1083) scale(1,-1)">04</text>
+			<text x="740" y="549.0897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,1098) scale(1,-1)">04</text>
+			<text x="764" y="549.0897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,1098) scale(1,-1)">inventory {packet} via API</text>
+			<text x="764" y="536.0897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,1072) scale(1,-1)">Metrics are nested inside packet; no dedicated usage event.</text>
+			<path d="M 431.5,508.789764 L 322.5,508.789764 Z" style="stroke: rgb(67%,35%,11%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="322.5 508.7898, 329.5 512.2898, 329.5 505.2898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(67%,35%,11%); fill-rule: evenodd;"/>
+			<circle cx="377.0" cy="508.78976377952756" r="10" style="stroke: rgb(67%,35%,11%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="371.996" y="505.48976377952755" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(67%,35%,11%); stroke:none;" transform="translate(0,1010) scale(1,-1)">05</text>
+			<text x="740" y="512.8897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(67%,35%,11%); stroke:none;" transform="translate(0,1025) scale(1,-1)">05</text>
+			<text x="764" y="512.8897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(67%,35%,11%); stroke:none;" transform="translate(0,1025) scale(1,-1)">ALT provider access/credit or fatal voice error</text>
+			<text x="764" y="499.8897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,999) scale(1,-1)">Selected stale control errors recover; other failures terminate voice bridge.</text>
+			<path d="M 322.5,472.589764 L 104.5,472.589764 Z" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="104.5 472.5898, 111.5 476.0898, 111.5 469.0898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(46%,31%,64%); fill-rule: evenodd;"/>
+			<circle cx="213.5" cy="472.5897637795276" r="10" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="208.496" y="469.28976377952756" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,938) scale(1,-1)">06</text>
+			<text x="740" y="476.6897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,953) scale(1,-1)">06</text>
+			<text x="764" y="476.6897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,953) scale(1,-1)">voice_error; review reason saved</text>
+			<text x="764" y="463.6897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,927) scale(1,-1)">Request explicit reconnect/funding action; retain saved camera evidence.</text>
+			<path d="M 104.5,436.389764 L 213.5,436.389764 Z" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="213.5 436.3898, 206.5 439.8898, 206.5 432.8898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(46%,31%,64%); fill-rule: evenodd;"/>
+			<circle cx="159.0" cy="436.3897637795276" r="10" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="153.996" y="433.0897637795276" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,866) scale(1,-1)">07</text>
+			<text x="740" y="440.4897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,880) scale(1,-1)">07</text>
+			<text x="764" y="440.4897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,880) scale(1,-1)">User reconnect: close old WS, open new WS</text>
+			<text x="764" y="427.4897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,854) scale(1,-1)">Repeat health/readiness negotiation in F01; no background paid reconnect loop.</text>
+			<path d="M 213.5,394.089764 L 104.5,394.089764 Z" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 2, 3;"/>
+			<polygon points="104.5 394.0898, 111.5 397.5898, 111.5 390.5898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(46%,31%,64%); fill-rule: evenodd;"/>
+			<circle cx="159.0" cy="394.08976377952763" r="10" style="stroke: rgb(46%,31%,64%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="153.996" y="390.7897637795276" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,781) scale(1,-1)">08</text>
+			<text x="740" y="404.2897637795276" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,808) scale(1,-1)">08</text>
+			<text x="764" y="404.2897637795276" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(46%,31%,64%); stroke:none;" transform="translate(0,808) scale(1,-1)">Current snapshot and newly negotiated voice</text>
+			<text x="764" y="391.2897637795276" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,782) scale(1,-1)">Unexpired in-memory setup can survive reconnect, not server restart. Prior</text>
+			<text x="764" y="379.08976377952763" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,758) scale(1,-1)">provider audio buffers do not.</text>
+			<path d="M 104.5,351.789764 L 213.5,351.789764 Z" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="213.5 351.7898, 206.5 355.2898, 206.5 348.2898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(7%,46%,37%); fill-rule: evenodd;"/>
+			<circle cx="159.0" cy="351.7897637795276" r="10" style="stroke: rgb(7%,46%,37%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="153.996" y="348.4897637795276" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,696) scale(1,-1)">09</text>
+			<text x="740" y="355.88976377952764" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,711) scale(1,-1)">09</text>
+			<text x="764" y="355.88976377952764" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(7%,46%,37%); stroke:none;" transform="translate(0,711) scale(1,-1)">After server restart: GET saved sweep</text>
+			<text x="764" y="342.88976377952764" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,685) scale(1,-1)">runner_for loads state; saved capturing/processing changes to partial.</text>
+			<path d="M 213.5,315.589764 L 649.5,315.589764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="649.5 315.5898, 642.5 319.0898, 642.5 312.0898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,48%,50%); fill-rule: evenodd;"/>
+			<circle cx="431.5" cy="315.58976377952763" r="10" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="426.496" y="312.2897637795276" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,624) scale(1,-1)">10</text>
+			<text x="740" y="319.68976377952765" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,639) scale(1,-1)">10</text>
+			<text x="764" y="319.68976377952765" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,639) scale(1,-1)">Load persisted state and evidence</text>
+			<text x="764" y="306.68976377952765" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,613) scale(1,-1)">No durable frame-task broker; missing capture continuity is reviewable.</text>
+			<path d="M 213.5,273.289764 L 540.5,273.289764 Z" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<polygon points="540.5 273.2898, 533.5 276.7898, 533.5 269.7898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,48%,50%); fill-rule: evenodd;"/>
+			<circle cx="377.0" cy="273.2897637795277" r="10" style="stroke: rgb(39%,48%,50%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="371.996" y="269.98976377952766" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,539) scale(1,-1)">11</text>
+			<text x="740" y="283.48976377952766" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,566) scale(1,-1)">11</text>
+			<text x="764" y="283.48976377952766" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(39%,48%,50%); stroke:none;" transform="translate(0,566) scale(1,-1)">resume_pricing with identity/spend guards</text>
+			<text x="764" y="270.48976377952766" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,540) scale(1,-1)">Queued eligible jobs may resume; searching becomes interrupted without</text>
+			<text x="764" y="258.2897637795277" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,516) scale(1,-1)">replay.</text>
+			<path d="M 213.5,230.989764 L 104.5,230.989764 Z" style="stroke: rgb(13%,42%,60%); stroke-linecap: butt; stroke-width: 1.5; stroke-dasharray: 5, 3;"/>
+			<polygon points="104.5 230.9898, 111.5 234.4898, 111.5 227.4898" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,42%,60%); fill-rule: evenodd;"/>
+			<circle cx="159.0" cy="230.98976377952766" r="10" style="stroke: rgb(13%,42%,60%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="153.996" y="227.68976377952765" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,455) scale(1,-1)">12</text>
+			<text x="740" y="235.08976377952766" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,470) scale(1,-1)">12</text>
+			<text x="764" y="235.08976377952766" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(13%,42%,60%); stroke:none;" transform="translate(0,470) scale(1,-1)">200 current ClaimPacket with review/unknowns</text>
+			<text x="764" y="222.08976377952766" style="font-family: Helvetica; font-size: 10.2px;fill: rgb(8%,23%,21%); stroke:none;" transform="translate(0,444) scale(1,-1)">Later price publications use the same event route; no claimed full recovery.</text>
+			<text x="38" y="84" style="font-family: Helvetica; font-size: 10px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,168) scale(1,-1)">BOUNDARY No blanket automatic paid retry. Persisted searching price jobs become interrupted/unknown-cost; eligible queued prices may resume. Server restart does not replay saved frame jobs. Costs can remain partial even when a packet exists.</text>
+			<text x="38" y="48" style="font-family: Helvetica; font-size: 8.5px;fill: rgb(32%,42%,40%); stroke:none;" transform="translate(0,96) scale(1,-1)">SOURCE claim_agent/server.py:157 | claim_agent/pipeline.py:61 | claim_agent/openai_live.py:238 | claim_agent/openai_live.py:694 | claim_agent/costing.py:57 | ios/LibraryClaim/CaptureController.swift:742</text>
+		</g>
+	</g>
+</svg>

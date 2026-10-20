@@ -33,3 +33,7 @@ flowchart TB
 **Bounds and evidence.** Active settings permit 20 vision attempts per sweep, six seconds apart; two frame workers and four pricing workers use separate bounded queues. SHA-256 receipts prevent changed retries; physical association uses session, depth, RoomPlan and verified image correspondence, never name equality alone. Revision checks reject stale prices. Billing/access failures stop further attempts; missing usage is uncosted. Keys stay on the Mac; demo LAN HTTP is unencrypted.
 
 **Validation boundary.** Recorded evidence includes 362 passing Python tests and a saved-sweep repair from 87 to 76 item records, including four chair records to one. These do not establish physical count accuracy. Full assessment ground truth, complete retailer coverage and scored end-to-end timing remain unverified; the latest pricing attempt reported `credit_balance_exhausted`.
+
+## Detailed service flows
+
+The [request/response flow guide](submission/service-flows.md) traces all 12 application workflows, including payloads, returned results, asynchronous events and failure branches. The same diagrams appear in the [full technical report](../output/pdf/technical-report.pdf).
